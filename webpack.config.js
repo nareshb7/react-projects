@@ -13,6 +13,7 @@ module.exports = {
       components: path.resolve(__dirname, "src/components"),
       utils: path.resolve(__dirname, "src/utils"),
       projects: path.resolve(__dirname, "src/projects"),
+      common: path.resolve(__dirname, "src/common"),
       // Add more aliases as needed
     },
   },
