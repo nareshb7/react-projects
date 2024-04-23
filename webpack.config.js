@@ -33,8 +33,12 @@ module.exports = {
         },
       },
       {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
+      },
+      {
         test: /\.scss$/,
-        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
       },
     ],
   },
@@ -44,6 +48,10 @@ module.exports = {
     }),
   ],
   devServer: {
+    port: 8080,
+    open: true,
+    hot: true,
+    compress: true,
     historyApiFallback: true,
   },
 };
