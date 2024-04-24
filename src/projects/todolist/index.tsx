@@ -25,7 +25,7 @@ const Todo = () => {
     setTodos(newTodos);
   };
   return (
-    <div className="todo-app">
+    <div className="todo-app flex justify-center items-center flex-col">
       <TodoEdit
         handleAdd={handleAddTodo}
         isEdit={updateTodoId !== null}

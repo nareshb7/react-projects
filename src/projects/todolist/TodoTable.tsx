@@ -3,26 +3,25 @@ import { TodoTableProps } from "./modals";
 import { Button } from "common/Components";
 
 const TodoTable = ({ todos, handleDelete, handleEdit }: TodoTableProps) => {
-    console.log("TABLE")
   return (
     <div className="todo-table">
       {todos.length ? (
-        <table>
+        <table className="table w-full border-collapse">
           <thead>
             <tr>
-              <th>Sl. No</th>
-              <th>Name</th>
-              <th>Status</th>
-              <th>Action</th>
+              <th className="table-header-cell border p-2">Sl. No </th>
+              <th className="table-header-cell border p-2">Name </th>
+              <th className="table-header-cell border p-2">Status </th>
+              <th className="table-header-cell border p-2">Action</th>
             </tr>
           </thead>
           <tbody>
             {todos.map((todo, idx) => (
-              <tr key={idx}>
-                <td>{idx + 1}</td>
-                <td>{todo.content}</td>
-                <td>{todo.status}</td>
-                <td>
+              <tr key={idx} className="bg-gray-100 hover:bg-gray-200">
+                <td className="table-cell border p-2">{idx + 1}</td>
+                <td className="table-cell border p-2">{todo.content}</td>
+                <td className="table-cell border p-2">{todo.status}</td>
+                <td className="table-cell border p-2 ">
                   <Button title="Update" onClick={() => handleEdit(idx)} />
                   <Button title="Delete" onClick={() => handleDelete(todo)} />
                 </td>
