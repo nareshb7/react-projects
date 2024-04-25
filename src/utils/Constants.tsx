@@ -16,7 +16,7 @@ export const PROJECTS: ProjectsListModal[] = [
   {
     id: 2,
     title: "Weather App",
-    status: "In Progress",
+    status: "Completed",
     path: "/weather"
   },
   {
