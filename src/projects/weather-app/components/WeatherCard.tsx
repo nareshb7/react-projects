@@ -1,5 +1,5 @@
 import React from "react";
-import { WeatherCardProps } from "../modals";
+import { WeatherCardProps } from "./modals";
 
 const WeatherCard = ({ weatherData }: WeatherCardProps) => {
   const { name, weather, main, wind, sys } = weatherData;

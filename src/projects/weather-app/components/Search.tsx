@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Input } from "common/Components";
-import { SearchProps } from "../modals";
+import { SearchProps } from "./modals";
 
 const Search = ({ handleChange, handleSearch, city }: SearchProps) => {
   return (

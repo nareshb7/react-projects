@@ -1,6 +1,6 @@
 import React from "react";
 import WeatherCard from "./WeatherCard";
-import { WeatherDisplayProps } from "../modals";
+import { WeatherDisplayProps } from "./modals";
 import { isEmptyObject } from "utils/util";
 
 const WeatherDisplay = ({ cityData, errorMessage }: WeatherDisplayProps) => {

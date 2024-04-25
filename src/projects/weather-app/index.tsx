@@ -2,7 +2,7 @@ import React from 'react'
 import './styles.scss'
 import Search from './components/Search'
 import WeatherDisplay from './components/WeatherDisplay'
-import useWeather from './hooks';
+import useWeather from './components/hooks';
 
 const Weather = () => {
     const { cityData, errorMessage, city, handleChange, handleSearch } =
