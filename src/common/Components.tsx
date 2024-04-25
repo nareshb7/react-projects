@@ -24,7 +24,7 @@ export const Input = ({
   value,
   onChange,
   styles,
-  className = "",
+  className = "border border-blue-500 input rounded mx-1",
   ...inputProps
 }: InputProps) => {
   return (

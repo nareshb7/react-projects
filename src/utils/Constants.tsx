@@ -1,110 +1,126 @@
+export type ProjectStatusType = "In Progress" | "Pending" | "Completed"
+
 export interface ProjectsListModal {
     id: number;
     title: string;
-    status: boolean;
+    status: ProjectStatusType;
     path: string;
 }
 export const PROJECTS: ProjectsListModal[] = [
   {
     id: 1,
     title: "Todo List",
-    status: true,
+    status: "Completed",
     path: "/todo"
   },
   {
     id: 2,
     title: "Weather App",
-    status: false,
+    status: "In Progress",
     path: "/weather"
   },
   {
     id: 3,
     title: "Pagination Component",
-    status: false,
+    status: "Pending",
     path: "/pagination"
   },
   {
     id: 4,
     title: "Login Form",
-    status: false,
+    status: "Pending",
     path: "/login"
   },
   {
     id: 5,
     title: "Countdown Timer",
-    status: false,
+    status: "Pending",
     path: "/count-down"
   },
   {
     id: 6,
     title: "Modal Component",
-    status: false,
+    status: "Pending",
     path: "/modal"
   },
   {
     id: 7,
     title: "Drag and Drop",
-    status: false,
+    status: "Pending",
     path: "/drag-drop"
   },
   {
     id: 8,
     title: "Chat Application",
-    status: false,
+    status: "Pending",
     path: "/chat"
   },
   {
     id: 9,
     title: "Dropdown Component",
-    status: false,
+    status: "Pending",
     path: "/dropdown"
   },
   {
     id: 10,
     title: "Form Validation",
-    status: false,
+    status: "Pending",
     path: "/form-validation"
   },
   {
     id: 11,
     title: "Carousel Component",
-    status: false,
+    status: "Pending",
     path: "/carousel"
   },
   {
     id: 12,
     title: "Responsive Layout",
-    status: false,
+    status: "Pending",
     path: "/responsive"
   },
   {
     id: 13,
     title: "Redux Store",
-    status: false,
+    status: "Pending",
     path: "/redux"
   },
   {
     id: 14,
     title: "Infinite Scroll Component",
-    status: false,
+    status: "Pending",
     path: "/infinite-scroll"
   },
   {
     id: 15,
     title: "Quiz Application",
-    status: false,
+    status: "Pending",
     path: "/quiz"
   },
   {
     id: 16,
     title: "Calculator",
-    status: false,
+    status: "Pending",
     path: "/calculator"
   },
   {
     id: 17,
     title: "E-Commerce",
-    status: false,
+    status: "Pending",
     path: "/e-commerce"
   },
+  {
+    id: 18,
+    title: "Config Driven UI",
+    status: "Pending",
+    path: "/config-driven"
+  },
+  {
+    id: 19,
+    title: "Shimmer UI",
+    status: "Pending",
+    path: "/shimmer-ui"
+  },
 ];
+
+export const WEATHER_API_KEY = process.env.WEATHER_API_KEY

@@ -39,6 +39,7 @@ const TodoEdit = ({ handleAdd, isEdit, editContent }: TodoEditProps) => {
   }, [editContent]);
   return (
     <div className="add-todo py-2">
+      <h3 className="font-bold font-serif text-center">Todo List</h3>
       <Input
         placeholder="Type here..."
         type="text"

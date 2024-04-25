@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const DotenvWebpackPlugin = require('dotenv-webpack');
 
 module.exports = {
   entry: "./src/index.tsx",
@@ -14,6 +15,7 @@ module.exports = {
       utils: path.resolve(__dirname, "src/utils"),
       projects: path.resolve(__dirname, "src/projects"),
       common: path.resolve(__dirname, "src/common"),
+      routes: path.resolve(__dirname, "src/routes"),
       // Add more aliases as needed
     },
   },
@@ -47,6 +49,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/index.html",
     }),
+    new DotenvWebpackPlugin()
   ],
   devServer: {
     port: 8080,
