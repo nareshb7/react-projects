@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "./Root";
 import Todo from "projects/todolist";
 import Weather from "projects/weather-app";
+import Pagination from "projects/pagination";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
         path: "/weather",
         element: <Weather />,
       },
+      {
+        path: "/pagination",
+        element: <Pagination />
+      }
     ],
   },
 ]);
