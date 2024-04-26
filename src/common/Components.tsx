@@ -5,14 +5,14 @@ export const Button = ({
   title,
   onClick,
   styles,
-  className = "px-3 py-2 border border-blue-500 rounded hover:bg-gray-500 m-1",
+  className = "",
   ...buttonProps
 }: ButtonProps) => {
   return (
     <button
       onClick={onClick}
       style={styles}
-      className={className}
+      className={`${className} px-3 py-2 border border-blue-500 rounded hover:bg-gray-500 m-1`}
       {...buttonProps}
     >
       {title}

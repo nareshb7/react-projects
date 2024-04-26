@@ -121,6 +121,12 @@ export const PROJECTS: ProjectsListModal[] = [
     status: "Pending",
     path: "/shimmer-ui"
   },
+  {
+    id: 20,
+    title: "Rich Text Editor",
+    status: "Pending",
+    path: "/rich-text-editor"
+  },
 ];
 
 export const WEATHER_API_KEY = process.env.WEATHER_API_KEY

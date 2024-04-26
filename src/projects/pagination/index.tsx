@@ -8,7 +8,6 @@ const Pagination = () => {
     <div className="flex justify-center flex-col">
       <h3 className="font-bold">Pagination</h3>
       <PaginationTable />
-      <PaginationComp />
     </div>
   );
 };
