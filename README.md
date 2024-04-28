@@ -32,6 +32,7 @@ This repository contains 20 projects built with React, TypeScript, Tailwind CSS,
 16. **Calculator**: A basic calculator application.
 17. **E-Commerce**: An e-commerce application for buying and selling products.
 18. **Config-Driven-UI**:
+19. **Protected Route**
 
 
 ## Usage
