@@ -128,5 +128,6 @@ export const PROJECTS: ProjectsListModal[] = [
     path: "/rich-text-editor"
   },
 ];
+export const DUMMY = "DUMMY"
 
 export const WEATHER_API_KEY = process.env.WEATHER_API_KEY
