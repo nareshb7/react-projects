@@ -6,38 +6,41 @@ const getLastPage = (totalItems: number, itemsPerPage: number) => {
   return Math.ceil(totalItems / itemsPerPage);
 };
 const getPagesList = (currentPage: number, totlaPages: number) => {
-  if (totlaPages) {
-    return Array(totlaPages)
-      .fill(1)
-      .map((_, i) => i + 1);
-  }
+
   const generatePreviousPages = (currentPage: number) => {
     if (currentPage > 2) {
       return [
         currentPage - 2,
         currentPage - 1,
-        currentPage,
-        currentPage + 1,
-        currentPage + 2,
       ];
     }
     if (currentPage > 1) {
-      return [currentPage - 1, currentPage, currentPage + 1, currentPage + 2];
+      return [currentPage - 1];
     }
-    return [1];
+    return [];
   };
   const generateNextPages = () => {
-    if (currentPage + 2 < totlaPages) {
-      return [currentPage + 1, currentPage + 2, currentPage + 3];
-    }
-    if (currentPage + 1 < totlaPages) {
+    if (currentPage +1 < totlaPages) {
       return [currentPage + 1, currentPage + 2];
+    }
+    if (currentPage < totlaPages) {
+      return [currentPage + 1];
     }
     return [];
   };
   const leftSidePages = generatePreviousPages(currentPage);
   const rightSidePages = generateNextPages();
-  return [...leftSidePages, 1111, ...rightSidePages];
+  const array = [...leftSidePages, currentPage, ...rightSidePages]
+  if (!array.includes(1) && !array.includes(totlaPages)) {
+    return [1, 1111,...array, 1111, totlaPages]
+  }
+  if (array.includes(1)) {
+    return [...array, 1111, totlaPages]
+  }
+  if(array.includes(totlaPages)) {
+    return [1, 1111,...array]
+  }
+  return array;
 };
 const PaginationComp = ({
   totalItems,

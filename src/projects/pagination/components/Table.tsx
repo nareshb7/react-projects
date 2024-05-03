@@ -40,8 +40,8 @@ const PaginationTable = () => {
             return (
               <tr key={val.id}>
                 <td>{val.id}</td>
-                <td>test{val.id + 1}</td>
-                <td>role{val.id + 1}</td>
+                <td>test{val.id }</td>
+                <td>role{val.id}</td>
               </tr>
             );
           })}
