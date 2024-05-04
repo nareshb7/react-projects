@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./styles.scss";
 import { PROJECTS } from "utils/Constants";
+import logo from 'assets/nrLogo.png'
 
 const Navbar = () => {
   return (
@@ -9,10 +10,10 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <div className="flex">
-            <div className="flex-shrink-0">
-              <a href="#" className="text-white font-bold text-lg">
-                Logo
-              </a>
+            <div className="flex-shrink-0 logo">
+              <NavLink to='/' className="text-white font-bold text-lg ">
+                <img src={logo} />
+              </NavLink>
             </div>
           </div>
           <div className="hidden md:block">

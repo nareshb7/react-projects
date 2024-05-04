@@ -16,6 +16,7 @@ module.exports = {
       projects: path.resolve(__dirname, "src/projects"),
       common: path.resolve(__dirname, "src/common"),
       routes: path.resolve(__dirname, "src/routes"),
+      assets: path.resolve(__dirname, "src/assets"),
       // Add more aliases as needed
     },
   },
@@ -34,6 +35,18 @@ module.exports = {
             ],
           },
         },
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'images', // Optional: Specify the output directory for the images
+            },
+          },
+        ],
       },
       {
         test: /\.css$/,

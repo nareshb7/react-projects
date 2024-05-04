@@ -22,14 +22,14 @@ export const PROJECTS: ProjectsListModal[] = [
   {
     id: 3,
     title: "Pagination Component",
-    status: "In Progress",
+    status: "Completed",
     path: "/pagination"
   },
   {
     id: 4,
     title: "Login Form",
-    status: "Pending",
-    path: "/login"
+    status: "In Progress",
+    path: "/login-form"
   },
   {
     id: 5,
