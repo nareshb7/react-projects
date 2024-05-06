@@ -1,7 +1,7 @@
 # Multi-Project Repository
 
 This repository contains 20 projects built with React, TypeScript, Tailwind CSS, Sass, Webpack, and Babel.
-update
+
 
 ## Tech Stack
 
