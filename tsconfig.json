@@ -17,9 +17,10 @@
     "paths": {
       "components/*": ["components/*"],
       "pages/*": ["pages/*"],
-      "utils/*": ["utils/*"]
+      "utils/*": ["utils/*"],
+      "assets/*": ["assets/*"]
       // Add more aliases as needed
     },
   },
-  "include": ["src/**/*.tsx", "src/projects/weather-app/components/hooks.ts"]
+  "include": ["src/**/*.tsx", "src/**/*.ts"]
 }

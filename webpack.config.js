@@ -6,6 +6,7 @@ module.exports = {
   entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "dist"),
+    filename: 'main.js', // Output file nam
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx"],

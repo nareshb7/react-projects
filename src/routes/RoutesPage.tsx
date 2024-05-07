@@ -7,6 +7,8 @@ import Pagination from "projects/pagination";
 import LoginForm from "projects/loginForm";
 import Login from "projects/loginForm/components/Login";
 import Signup from "projects/loginForm/components/Signup";
+import Home from "projects/loginForm/components/Home";
+import Welcome from "projects/loginForm/components/Welcome";
 
 const router = createBrowserRouter([
   {
@@ -29,12 +31,20 @@ const router = createBrowserRouter([
         element: <LoginForm />,
         children: [
           {
+            path: '/login-form/',
+            element: <Home />
+          },
+          {
             path: 'login',
             element: <Login />
           },
           {
             path: 'signup',
             element: <Signup />
+          },
+          {
+            path: 'home',
+            element: <Welcome />
           }
         ]
       }
