@@ -13,6 +13,7 @@ export interface RenderInputFieldProps {
   name: string;
   value: string;
   handleChange: (name: string, value: string) => void;
+  error: string;
 }
 
 export interface LoginFormData {

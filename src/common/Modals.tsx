@@ -11,3 +11,7 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
     styles?: React.CSSProperties
     className?: string;
 }
+
+export interface ErrorMessageProps {
+    error : string
+  }

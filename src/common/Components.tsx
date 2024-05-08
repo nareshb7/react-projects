@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonProps, InputProps } from "./Modals";
+import { ButtonProps, ErrorMessageProps, InputProps } from "./Modals";
 
 export const Button = ({
   title,
@@ -36,3 +36,7 @@ export const Input = ({
     />
   );
 };
+
+export const ErrorMessage =({error}:ErrorMessageProps)=> {
+  return error ? <div style={{color: "#f00"}}>{error}</div>:<></>
+}
