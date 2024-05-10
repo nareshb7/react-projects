@@ -19,4 +19,5 @@ export interface RenderInputFieldProps {
 export interface LoginFormData {
   mobile: string;
   password: string;
+  [key:string]: string;
 }
