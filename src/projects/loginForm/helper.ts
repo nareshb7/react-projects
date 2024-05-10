@@ -18,12 +18,17 @@ export const addNewUser = (data: SignupFormDataType)=> {
     console.log("PREVIOUS:::", previousData)
     if (previousData) {
         const updated:SignupFormDataType[]  = JSON.parse(previousData)
+        const isExisted = updated.find(user => user.mobile === data.mobile)
+        if (isExisted) {
+            return "Mobile Number is already registered, please use login"
+        }
         updated.push(data)
         localStorage.setItem("formUsers",JSON.stringify(updated) )
         setLocalStoragData("formUsers",JSON.stringify(updated))
     } else {
         setLocalStoragData("formUsers",JSON.stringify([data]))
     }
+    return ""
 }
 
 
@@ -31,7 +36,6 @@ export const verifyLogin = ({mobile, password}: LoginFormData)=> {
     const data = getLocalStoragData("formUsers")
     if(data) {
         const previousData: SignupFormDataType[] = JSON.parse(data)
-
         const isUser = previousData.find(user => user.mobile === mobile)
         if (isUser) {
             const isPaswrdSame = isUser.password == password

@@ -3,13 +3,16 @@ import React, { useState } from "react";
 import { verifyLogin } from "../helper";
 import { LoginFormData } from "../Modals";
 import { useNavigate } from "react-router-dom";
+const initialLoginObj ={
+  mobile: "",
+  password: "",
+}
 
 const Login = () => {
   const navigate = useNavigate()
-  const [loginData, setLoginData] = useState<LoginFormData>({
-    mobile: "",
-    password: "",
-  });
+  const [loginData, setLoginData] = useState<LoginFormData>(initialLoginObj);
+  // login in validation
+  const [erros, setErrors] = useState(initialLoginObj)
   const [errorMessage, setErrorMessage] = useState("")
   const handelChange = (name:string,value: string) => {
     console.log("NAME::", name, value)
