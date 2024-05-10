@@ -27,12 +27,10 @@ const Login = () => {
     return error;
   };
   const handelChange = (name:string,value: string) => {
-    console.log("NAME::", name, value)
     validate(name, value)
     setLoginData({ ...loginData, [name]: value });
   };
   const handleSubmit = () => {
-    console.log("LOGGED IN");
     const errorCount = Object.keys(loginData).filter((field) => {
       return validate(field, loginData[field]);
     }).length;

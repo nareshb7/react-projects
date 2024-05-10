@@ -15,7 +15,6 @@ export const setLocalStoragData = (name: string, data: string)=> {
 }
 export const addNewUser = (data: SignupFormDataType)=> {
     const  previousData = getLocalStoragData("formUsers")
-    console.log("PREVIOUS:::", previousData)
     if (previousData) {
         const updated:SignupFormDataType[]  = JSON.parse(previousData)
         const isExisted = updated.find(user => user.mobile === data.mobile)

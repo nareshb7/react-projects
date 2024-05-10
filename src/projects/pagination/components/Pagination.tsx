@@ -80,7 +80,6 @@ const PaginationComp = ({
   ) => {
     const { value } = e.target;
     const pageSize = Number(value);
-    console.log("VALUE::", value);
     setItemsPerPage(pageSize);
     setCurrentPage(1)
     onPageSizeChange && onPageSizeChange(pageSize);
