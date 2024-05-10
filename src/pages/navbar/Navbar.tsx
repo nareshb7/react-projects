@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./styles.scss";
-import { PROJECTS } from "utils/Constants";
 import logo from 'assets/nrLogo.png'
+import { projectsList } from "utils/projectsConfig";
 
 const Navbar = () => {
   return (
@@ -17,7 +17,7 @@ const Navbar = () => {
             </div>
           </div>
           <div className="hidden md:block">
-            {PROJECTS.map((project) => {
+            {projectsList.map((project) => {
               return (
                 <li
                   key={project.id}
