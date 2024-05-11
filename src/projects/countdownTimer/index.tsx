@@ -6,7 +6,7 @@ const CountdownTimer = () => {
   return (
     <div className="countdown-timer-wrapper">
       <div className="countdown-timer">
-        <h1>COUNT DOWN TIMER</h1>
+        <h1 className="font-bold">COUNT DOWN TIMER</h1>
         <Timer />
       </div>
     </div>

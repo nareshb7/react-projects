@@ -7,6 +7,7 @@ const Timer = () => {
   const [laps, setLaps] = useState<number[]>([]);
   const [isPaused, setIsPaused] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
+  
   const startInterval = () => {
     interval = setInterval(() => {
       setTimer((prev) => prev + 1);
@@ -19,7 +20,6 @@ const Timer = () => {
   };
   const handleStopClick = () => {
     if (isRunning) {
-      console.log("STOP:::", interval);
       setIsRunning(false);
       setTimer(0);
       clearInterval(interval);
@@ -27,9 +27,7 @@ const Timer = () => {
     }
   };
   const handlePauseClick = () => {
-    console.log("ISPAUSED:::", isPaused);
     if (!isPaused) {
-      //   setLaps((prev) => [...prev, timer / 10]);
       clearInterval(interval);
     } else {
       startInterval();
