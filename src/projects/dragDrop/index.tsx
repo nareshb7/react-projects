@@ -9,11 +9,11 @@ const DragDropMain = () => {
     <div className='drag-drop'>
         <div className='drag-component section'>
             <h1>Drag Component</h1>
-            <DragComponent items={list} />
+            <DragComponent items={list}  />
         </div>
         <div className='drop-component section'>
             <h1>Drop Component</h1>
-            <DropComponent />
+            <DropComponent  />
         </div>
     </div>
   )

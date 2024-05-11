@@ -5,7 +5,7 @@ export interface DragComponentProps {
 }
 export interface DragCardProps {
     item: string;
-    onDragStart: (e: React.DragEvent<HTMLDivElement>)=> void
+    onDragStart: (e: React.DragEvent<HTMLDivElement>)=> void;
 }
 
 export const DragCard =({item, onDragStart}: DragCardProps)=> {
@@ -13,15 +13,16 @@ export const DragCard =({item, onDragStart}: DragCardProps)=> {
 }
 
 const DragComponent = ({items}: DragComponentProps) => {
-    const handleDragStart =(e: React.DragEvent<HTMLDivElement>)=> { 
+    const handleDragStart =(e: React.DragEvent<HTMLDivElement>, item: string)=> { 
         console.log("DRAG::START")
+        e.dataTransfer.setData('dragIndex', item);
     }
   return (
     <div>DragComponent
         <div>
             {
-                items.map(item => {
-                    return <DragCard item={item} onDragStart={handleDragStart} />
+                items.map((item, i) => {
+                    return <DragCard key={i} item={item} onDragStart={(e) => handleDragStart(e, item)} />
                 })
             }
         </div>
