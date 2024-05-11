@@ -34,7 +34,7 @@ export const projectsList: ProjectsListModal[] = [
   {
     id: 5,
     title: "Countdown Timer",
-    status: "In Progress",
+    status: "Completed",
     path: "/timer"
   },
   {
