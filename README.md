@@ -64,5 +64,3 @@ Submit a pull request.
 
 ### License
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-This README provides a comprehensive overview of the repository, including the projects included, the tech stack used, instructions for usage, contributing guidelines, and license information. Feel free to customize it further to fit your specific needs!
