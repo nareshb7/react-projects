@@ -10,6 +10,7 @@ import Signup from "projects/loginForm/components/Signup";
 import Home from "projects/loginForm/components/Home";
 import Welcome from "projects/loginForm/components/Welcome";
 import CountdownTimer from "projects/countdownTimer";
+import Modal from "projects/modal";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,9 @@ const router = createBrowserRouter([
       }, {
         path: "/timer",
         element: <CountdownTimer />
+      }, {
+        path: "/modal",
+        element: <Modal />
       }
     ],
   },
