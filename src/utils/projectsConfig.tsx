@@ -40,7 +40,7 @@ export const projectsList: ProjectsListModal[] = [
   {
     id: 6,
     title: "Modal Component",
-    status: "In Progress",
+    status: "Completed",
     path: "/modal"
   },
   {
