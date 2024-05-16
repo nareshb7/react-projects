@@ -1,22 +1,42 @@
-import React, { useState } from 'react'
-import './styles.scss'
-import DragComponent from './components/DragComponent'
-import DropComponent from './components/DropComponent'
+import React, { useState } from "react";
+import "./styles.scss";
+import useDragDrop from "./components/hooks";
+import DragDropComponent from "./components/DragDropComponent";
 
 const DragDropMain = () => {
-    const [list, setList] = useState(["Naresh", "Mani" , "Aneesh", "Vinay", "Brahma"])
-  return (
-    <div className='drag-drop'>
-        <div className='drag-component section'>
-            <h1>Drag Component</h1>
-            <DragComponent items={list}  />
-        </div>
-        <div className='drop-component section'>
-            <h1>Drop Component</h1>
-            <DropComponent  />
-        </div>
-    </div>
-  )
-}
+  const {
+    leftSideData,
+    rightSideData,
+    handleDragStartRight,
+    handleRightDrop,
+    handleDragStartLeft,
+    handleLeftDrop,
+    handleLeftItemDrop,
+    handleRightItemDrop
+  } = useDragDrop();
 
-export default DragDropMain
+  return (
+    <div className="drag-drop">
+      <div className="component section">
+        <h1 className="font-bold">Left Side Component</h1>
+        <DragDropComponent
+          items={leftSideData}
+          handleDragStart={handleDragStartLeft}
+          handleDrop={handleLeftDrop}
+          handleItemDrop={handleLeftItemDrop}
+        />
+      </div>
+      <div className="component section">
+        <h1 className="font-bold">Right Side Component</h1>
+        <DragDropComponent
+          items={rightSideData}
+          handleDragStart={handleDragStartRight}
+          handleDrop={handleRightDrop}
+          handleItemDrop={handleRightItemDrop}
+        />
+      </div>
+    </div>
+  );
+};
+
+export default DragDropMain;
