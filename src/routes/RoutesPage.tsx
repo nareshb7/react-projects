@@ -13,6 +13,7 @@ import Welcome from "projects/loginForm/components/Welcome";
 import CountdownTimer from "projects/countdownTimer";
 import Modal from "projects/modal";
 import DragDropMain from "projects/dragDrop";
+import ChatMain from "projects/chat-application";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,9 @@ const router = createBrowserRouter([
       }, {
         path: "/drag-drop",
         element: <DragDropMain />
+      }, {
+        path: "/chat",
+        element: <ChatMain />
       }
     ],
   },
