@@ -46,7 +46,7 @@ export const projectsList: ProjectsListModal[] = [
   {
     id: 7,
     title: "Drag and Drop",
-    status: "Pending",
+    status: "Completed",
     path: "/drag-drop"
   },
   {
