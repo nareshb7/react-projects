@@ -3,7 +3,7 @@
     text-align: center;
     margin: 10px;
     .chat-box {
-        width: 50%;
+        width: 30%;
         margin: auto;
         background-color: #f0ece6;
         height: 500px;
@@ -30,9 +30,30 @@
             overflow: auto;
             .right {
                 text-align: right;
+                margin-right: 3px;
+                .message-content {
+                    border-radius: 9px 0 9px 9px;
+                }
             }
             .left {
                 text-align: left;
+                margin-left: 3px;
+                .message-content {
+                    border-radius: 0px 9px 9px;
+                }
+            }
+            
+            .message {
+                margin-block: 10px;
+                .message-content {
+                    padding: 5px 10px;
+                    background-color: #888;
+                }
+                .user-name {
+                    font-size: 10px;
+                    // background-color: #888;
+                    color: #888;
+                }
             }
             
         }

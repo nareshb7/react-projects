@@ -16,5 +16,5 @@ export const messages = [
   { message: "Good", sender: "User1" },
   { message: "Where are you?", sender: "User1" },
   { message: "Hyd", sender: "User2" },
-  { message: "Going Home", sender: "User1" },
+  { message: "Going Home Going Home Going Home Going Home Going Home Going Home Going Home Going Home Going Home ", sender: "User1" },
 ];

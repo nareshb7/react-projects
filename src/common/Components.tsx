@@ -25,11 +25,13 @@ export const Input = ({
   onChange,
   styles,
   className = "border border-blue-500 input rounded mx-1",
+  onKeyDown,
   ...inputProps
 }: InputProps) => {
   return (
     <input
       value={value}
+      onKeyDown={onKeyDown}
       onChange={onChange}
       className={className}
       style={styles}
