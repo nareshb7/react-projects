@@ -19,6 +19,7 @@ const ChatMain =()=> {
         setUserData({...userData, [name]: value})
     }
     useEffect(()=> {
+        console.log("CHECKKKK")
         socket.emit('chat')
     }, [])
     return <div className="chat-main">CHAT MAIN PAGE
