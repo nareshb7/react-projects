@@ -19,7 +19,6 @@ const ChatComponent = ({ userData, handleBack }: ChatComponentProps) => {
     setMessages(latestMessages);
   });
   const sendMessage = () => {
-    console.log("MESSAGE::", messageInput);
     socket.emit("sendMessage", {
       content: messageInput,
       sender: userData.name,

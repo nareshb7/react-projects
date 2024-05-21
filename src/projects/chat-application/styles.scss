@@ -7,9 +7,13 @@
         margin: auto;
         background-color: #f0ece6;
         height: 500px;
+        @media (max-width: 967px) {
+            width: 70%;
+        }
         @media (max-width: 767px) {
             width: 95%;
         }
+        
         .box-header {
             height: 50px;
             background-color: #128d7f;
