@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Input } from "common/Components";
 // import { messages } from "./mockData";
 import { socket } from "..";
+import { MessageType } from "../types";
 
 export interface ChatComponentProps {
   userData: {
@@ -12,17 +13,16 @@ export interface ChatComponentProps {
 }
 const ChatComponent = ({ userData, handleBack }: ChatComponentProps) => {
   const [messageInput, setMessageInput] = useState("");
-  const [messages, setMessages] = useState<
-    { content: string; sender: string }[]
-  >([]);
-  socket.off("newMessage").on("newMessage", (latestMessages) => {
-    setMessages(latestMessages);
+  const [messages, setMessages] = useState<MessageType[]>([]);
+  socket.off("newMessage").on("newMessage", (latestMessages, roomMessages, total) => {
+    console.log("room::::",{ roomMessages, total})
+    setMessages(roomMessages);
   });
   const sendMessage = () => {
     socket.emit("sendMessage", {
       content: messageInput,
       sender: userData.name,
-      roomId: "",
+      roomId: userData.roomNo,
     });
     setMessageInput('')
   };
@@ -32,14 +32,18 @@ const ChatComponent = ({ userData, handleBack }: ChatComponentProps) => {
     }
   };
   useEffect(()=> {
-    socket.emit("getMessages")
+    socket.emit("joinRoom", userData.roomNo)
+    socket.emit("getMessages", userData.roomNo)
+    return ()=> {
+      socket.emit("leaveRoom", userData.roomNo)
+    }
   }, [])
   return (
     <div className="chat-box">
       <div className="box-header">
         <div className="leftside-section">
           <span className="back-icon" onClick={handleBack}>&#x2190;</span>
-          <span>{userData.name}</span>
+          <span>{userData.name} ({userData.roomNo})</span>
         </div>
         <div className="rightside-section">
           <span>:</span>

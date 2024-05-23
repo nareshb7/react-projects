@@ -3,6 +3,7 @@ const {Server} = require("socket.io")
 const http = require("http")
 const PORT = 8081
 const messages =[]
+const roomMessages = {}
 
 const app =express()
 const server = http.createServer(app)
@@ -19,14 +20,27 @@ io.on("connection", (socket) => {
         console.log('CHAT EVENT EMITTED')
         socket.emit("check", "SOCKET CONNECTED")
     })
-    socket.on("sendMessage", (data)=> {
-        // const {content, sender} = data
-        messages.push(data)
-        socket.emit('newMessage', messages)
-        socket.broadcast.emit("newMessage", messages)
+    socket.on("joinRoom", roomId => {
+        socket.join(roomId)
     })
-    socket.on("getMessages", ()=> {
-        socket.emit('newMessage', messages)
+    socket.on("leaveRoom", roomId => {
+        socket.leave(roomId)
+    })
+    socket.on("sendMessage", (data)=> {
+        const {content, sender, roomId} = data
+        const message = {content,sender, id: Math.random().toString(36).slice(2)}
+        if(roomId in roomMessages) {
+            roomMessages[roomId].push(message)
+        } else {
+            roomMessages[roomId] = [message]
+        }
+        messages.push(message)
+        // socket.emit('newMessage', messages, roomMessages[roomId], roomMessages)
+        io.to(roomId).emit("newMessage", messages, roomMessages[roomId], roomMessages)
+        // io.to(room).emit('room-messages', roomMessages)
+    })
+    socket.on("getMessages", (roomId)=> {
+        socket.emit('newMessage', messages,  roomMessages[roomId] || [], roomMessages)
     })
 })
 
