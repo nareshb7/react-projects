@@ -36,12 +36,10 @@ const Login = ({onStart}: ChatLoginProps) => {
   const handleStartChat = () => {
     const {name, roomNo} = formData
     const errors = Object.entries(formData).filter(field => {
-        console.log("VSL:::", field)
         const res = validator(field[0], field[1])
         setError(prev => ({...prev, [field[0]]: res}))
         return res
       })
-    console.log("ERRROR::::", errors)
     if (errors.length === 0) {
       const random = generateRandomString().slice(2, 6);
       formData.name = name + random;
@@ -49,16 +47,25 @@ const Login = ({onStart}: ChatLoginProps) => {
       setFormData(initialUserObj);
     }
   };
+  const handleJoinChat =()=> {
+    const errors = Object.entries(formData).filter(field => {
+      const res = validator(field[0], field[1])
+      setError(prev => ({...prev, [field[0]]: res}))
+      return res
+    })
+    if (errors.length === 0) {
+        onStart(formData)
+      setFormData(initialUserObj);
+    }
+  }
   const handleChange = (name: string, value: string) => {
     setFormData({ ...formData, [name]: value });
   };
   const getRoomId =()=> {
     const roomNo = generateRoomId()
     setFormData({...formData, roomNo})
-    console.log("RANDOM::",  roomNo)
   }
   return (<div>
-    <Button onClick={handleStartChat} title="Start Chat" />
     <div>
       <label>User Name:</label>
       <Input
@@ -76,7 +83,8 @@ const Login = ({onStart}: ChatLoginProps) => {
       <Button onClick={getRoomId} title='Generate'/>
     </div>
     <ErrorMessage error={error.roomNo} />
-    <Button onClick={handleStartChat} title="Join Chat" />
+    <Button onClick={handleStartChat} title="Start Chat" />
+    <Button onClick={handleJoinChat} title="Join Chat" />
   </div>
   )
 }
