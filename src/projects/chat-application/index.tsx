@@ -21,8 +21,8 @@ const ChatMain = () => {
   };
 
   return (
-    <div className="chat-main">
-      CHAT MAIN PAGE
+    <div className="chat-main ">
+      <div className="font-bold text-2xl p-1"> CHAT MAIN PAGE</div>
       {!isChatboxOpen && <Login onStart={handleStartChat} />}
       {isChatboxOpen &&
         (socket.connected ? (
