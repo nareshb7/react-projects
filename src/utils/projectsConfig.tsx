@@ -52,7 +52,7 @@ export const projectsList: ProjectsListModal[] = [
   {
     id: 8,
     title: "Chat Application",
-    status: "In Progress",
+    status: "Completed",
     path: "/chat"
   },
   {
