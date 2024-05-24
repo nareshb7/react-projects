@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Input } from "common/Components";
 import { CustomDropDownProps, DropDownOption } from "../types";
-import { useOutsideClick } from "../hooks";
+import { useOutsideClick } from "common/hooks";
 
 const CustomDropDown = ({
   options,
