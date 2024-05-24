@@ -65,7 +65,7 @@ const Login = ({ onStart }: ChatLoginProps) => {
     setFormData({ ...formData, roomNo });
   };
   return (
-    <div className="login flex justify-start flex-col w-full md:w-1/2 text-left mx-auto">
+    <div className="login flex justify-start flex-col w-full md:w-1/2 text-left mx-auto bg-gray-888 p-5 rounded-lg">
       <div className="my-2.5 ">
         <label className="w-90 inline-block font-bold">User Name:</label>
         <Input
