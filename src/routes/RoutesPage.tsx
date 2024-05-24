@@ -14,6 +14,7 @@ import CountdownTimer from "projects/countdownTimer";
 import Modal from "projects/modal";
 import DragDropMain from "projects/dragDrop";
 import ChatMain from "projects/chat-application";
+import DropDownMain from "projects/dropDown";
 
 const router = createBrowserRouter([
   {
@@ -68,6 +69,9 @@ const router = createBrowserRouter([
       }, {
         path: "/chat",
         element: <ChatMain />
+      }, {
+        path: "/dropdown",
+        element: <DropDownMain />
       }
     ],
   },
