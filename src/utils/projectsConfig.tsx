@@ -58,7 +58,7 @@ export const projectsList: ProjectsListModal[] = [
   {
     id: 9,
     title: "Dropdown Component",
-    status: "In Progress",
+    status: "Completed",
     path: "/dropdown"
   },
   {
