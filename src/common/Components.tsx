@@ -27,6 +27,7 @@ export const Input = ({
   className = "border border-blue-500 input rounded mx-1",
   onKeyDown,
   name,
+  placeholder,
   ...inputProps
 }: InputProps) => {
   return (
@@ -36,6 +37,7 @@ export const Input = ({
       onChange={onChange}
       className={className}
       style={styles}
+      placeholder={placeholder}
     />
   );
 };
