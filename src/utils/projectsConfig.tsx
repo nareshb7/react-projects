@@ -127,4 +127,10 @@ export const projectsList: ProjectsListModal[] = [
     status: "Pending",
     path: "/rich-text-editor"
   },
+  {
+    id: 21,
+    title: "Dark and Light mode",
+    status: "Pending",
+    path: "/dark-mode"
+  },
 ];
