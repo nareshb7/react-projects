@@ -15,6 +15,7 @@ import Modal from "projects/modal";
 import DragDropMain from "projects/dragDrop";
 import ChatMain from "projects/chat-application";
 import DropDownMain from "projects/dropDown";
+import FormValidationMain from "projects/form-validation";
 
 const router = createBrowserRouter([
   {
@@ -72,6 +73,9 @@ const router = createBrowserRouter([
       }, {
         path: "/dropdown",
         element: <DropDownMain />
+      }, {
+        path: "/form-validation",
+        element: <FormValidationMain />
       }
     ],
   },
