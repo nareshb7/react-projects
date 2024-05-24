@@ -1,49 +1,47 @@
 import React, { useEffect, useState } from "react";
 import { Button, Input } from "common/Components";
-// import { messages } from "./mockData";
 import { socket } from "..";
-import { MessageType } from "../types";
+import { ChatComponentProps, MessageType } from "../types";
 
-export interface ChatComponentProps {
-  userData: {
-    roomNo: string;
-    name: string;
-  };
-  handleBack: ()=> void;
-}
 const ChatComponent = ({ userData, handleBack }: ChatComponentProps) => {
   const [messageInput, setMessageInput] = useState("");
   const [messages, setMessages] = useState<MessageType[]>([]);
-  socket.off("newMessage").on("newMessage", (latestMessages, roomMessages, total) => {
-    console.log("room::::",{ roomMessages, total})
-    setMessages(roomMessages);
-  });
+  socket
+    .off("newMessage")
+    .on("newMessage", (latestMessages, roomMessages, total) => {
+      console.log("room::::", { roomMessages, total });
+      setMessages(roomMessages);
+    });
   const sendMessage = () => {
     socket.emit("sendMessage", {
       content: messageInput,
       sender: userData.name,
       roomId: userData.roomNo,
     });
-    setMessageInput('')
+    setMessageInput("");
   };
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       sendMessage();
     }
   };
-  useEffect(()=> {
-    socket.emit("joinRoom", userData.roomNo)
-    socket.emit("getMessages", userData.roomNo)
-    return ()=> {
-      socket.emit("leaveRoom", userData.roomNo)
-    }
-  }, [])
+  useEffect(() => {
+    socket.emit("joinRoom", userData.roomNo);
+    socket.emit("getMessages", userData.roomNo);
+    return () => {
+      socket.emit("leaveRoom", userData.roomNo);
+    };
+  }, []);
   return (
     <div className="chat-box">
       <div className="box-header">
         <div className="leftside-section">
-          <span className="back-icon" onClick={handleBack}>&#x2190;</span>
-          <span>{userData.name} ({userData.roomNo})</span>
+          <span className="back-icon" onClick={handleBack}>
+            &#x2190;
+          </span>
+          <span>
+            {userData.name} ({userData.roomNo})
+          </span>
         </div>
         <div className="rightside-section">
           <span>:</span>

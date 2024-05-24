@@ -1,39 +1,18 @@
 import { Button, ErrorMessage, Input } from "common/Components";
 import React, { useState } from "react";
 import { ChatLoginProps } from "../types";
-import { generateRandomString, generateRoomId } from "../utils/helper";
-import { initialUserObj, roomIdPattern } from "../utils/Constants";
-
-export const validator = (name: string, value: string) => {
-  switch (name) {
-    case "name": {
-      if (!value) {
-        return "Name Required";
-      }
-      if (value.length < 3) {
-        return "Min 3 chars required";
-      }
-      break;
-    }
-    case "roomNo": {
-      if (!value) {
-        return "Room Id required";
-      }
-      if (!value.match(roomIdPattern)) {
-        return "Enter valid Room Id";
-      }
-      break;
-    }
-    default:
-      return "";
-  }
-};
+import {
+  generateRandomString,
+  generateRoomId,
+  validator,
+} from "../utils/helper";
+import { initialUserObj } from "../utils/Constants";
 
 const Login = ({ onStart }: ChatLoginProps) => {
   const [formData, setFormData] = useState(initialUserObj);
   const [error, setError] = useState(initialUserObj);
   const handleStartChat = () => {
-    const { name, roomNo } = formData;
+    const { name } = formData;
     const errors = Object.entries(formData).filter((field) => {
       const res = validator(field[0], field[1]);
       setError((prev) => ({ ...prev, [field[0]]: res }));

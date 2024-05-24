@@ -5,16 +5,17 @@ import ChatComponent from "./components/ChatComponent";
 import Login from "./components/Login";
 import { ChatUserData } from "./types";
 import { initialUserObj } from "./utils/Constants";
+import { Button } from "common/Components";
 
 export const socket = io("http://192.168.10.30:8081");
 
 const ChatMain = () => {
   const [userData, setUserData] = useState<ChatUserData>(initialUserObj);
   const [isChatboxOpen, setIsChatboxOpen] = useState(false);
-  const handleStartChat =(data: ChatUserData)=> {
+  const handleStartChat = (data: ChatUserData) => {
     setIsChatboxOpen(true);
-    setUserData(data)
-  }
+    setUserData(data);
+  };
   const handleBack = () => {
     setIsChatboxOpen(false);
     setUserData(initialUserObj);
@@ -28,7 +29,9 @@ const ChatMain = () => {
         (socket.connected ? (
           <ChatComponent userData={userData} handleBack={handleBack} />
         ) : (
-          <div>Socket Not Connected</div>
+          <div>
+            <Button onClick={handleBack} title="Go Back" /> Socket Not Connected
+          </div>
         ))}
     </div>
   );
