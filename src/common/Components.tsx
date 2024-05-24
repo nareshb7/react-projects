@@ -38,6 +38,8 @@ export const Input = ({
       className={className}
       style={styles}
       placeholder={placeholder}
+      name={name}
+      {...inputProps}
     />
   );
 };
