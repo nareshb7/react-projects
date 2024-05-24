@@ -41,5 +41,5 @@ export const Input = ({
 };
 
 export const ErrorMessage =({error}:ErrorMessageProps)=> {
-  return error ? <div style={{color: "#f00"}}>{error}</div>:<></>
+  return error ? <div className="text-error">{error}</div>:<></>
 }
