@@ -1,8 +1,5 @@
-const PASSWORD_PATTERN =
-  /^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%&*<>]).{8,}$/;
-const NAME_REGEX = /^\w{3,}/;
-const EMAIL_PATTERN = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
-const MOBILE_PATTERN = /\d{10}/;
+import { emailPattern, mobilePattern, namePattern, passwordPattern } from "utils/Constants";
+
 
 export const validator = (name: string, value: string, psd: string = "") => {
   let error = "";
@@ -10,7 +7,7 @@ export const validator = (name: string, value: string, psd: string = "") => {
     case "role":
     case "location":
     case "name": {
-      if (NAME_REGEX.test(value)) {
+      if (namePattern.test(value)) {
         error = "";
       } else {
         error = "Min. 3 chars required";
@@ -18,7 +15,7 @@ export const validator = (name: string, value: string, psd: string = "") => {
       break;
     }
     case "email": {
-      if (EMAIL_PATTERN.test(value)) {
+      if (emailPattern.test(value)) {
         error = "";
       } else {
         error = "Email is not valid";
@@ -26,7 +23,7 @@ export const validator = (name: string, value: string, psd: string = "") => {
       break;
     }
     case "mobile": {
-      if (MOBILE_PATTERN.test(value)) {
+      if (mobilePattern.test(value)) {
         error = "";
       } else {
         error = "Mobile number is not valid";
@@ -34,7 +31,7 @@ export const validator = (name: string, value: string, psd: string = "") => {
       break;
     }
     case "password": {
-      if (PASSWORD_PATTERN.test(value)) {
+      if (passwordPattern.test(value)) {
         error = "";
       } else {
         error = "Min 8 chars required, One Upercase, lowercase, digit, symbol";
