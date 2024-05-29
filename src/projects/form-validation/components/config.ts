@@ -50,6 +50,11 @@ export const config: ConfigData[] = [
     options: statesList,
   },
   {
+    title: "Profile Image",
+    key: "file",
+    type: "file",
+  },
+  {
     title: "Password",
     key: "password",
     type: "password",

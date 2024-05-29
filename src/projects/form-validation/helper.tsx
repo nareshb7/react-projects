@@ -84,6 +84,23 @@ export const RenderField = ({
       </div>
     );
   }
+  if (type === "file") {
+    return (
+      <div key={key}>
+        <label className="font-bold">{title}</label>
+        <Input
+          onBlur={(e) => validator(key, e.target.value)}
+          onChange={(e) =>
+            handleChange(key, e.target.files ? e.target.files[0] : "")
+          }
+          name={key}
+          placeholder={placeholder}
+          type={type}
+        />
+        <ErrorMessage error={error} />
+      </div>
+    );
+  }
   if (type === "radio") {
     return (
       <div key={key}>

@@ -11,11 +11,21 @@ const Form = () => {
   const [userData, setUserData] = useState<FormFields>(initialFormFields);
   const [errors, setErrors] = useState<FormFields>(initialFormFields);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const handleChange = (name: string, value: string) => {
-    setFormData({ ...formData, [name]: value });
+  const handleChange = (name: string, value: string | File) => {
+    if (name === "file") {
+      if (value) {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          setFormData({ ...formData, [name]: reader.result });
+        };
+        reader.readAsDataURL(value as File);
+      }
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
     // If there is error then only we will cal validator function
     if (errors[name]) {
-      validator(name, value);
+      validator(name, value as string);
     }
   };
   const validator = (name: string, value: string) => {

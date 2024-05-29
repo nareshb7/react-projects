@@ -18,6 +18,7 @@ export const initialFormFields = {
   dob: "",
   age: "",
   state: "",
+  file: ""
 };
 
 export const formFieldTitle: any = {
@@ -29,6 +30,7 @@ export const formFieldTitle: any = {
   dob: "Date of Birth",
   age: "Age",
   state: "State",
+  file: "Profile Image",
 };
 
 export const inputTypes = ["text", "date", "password"];

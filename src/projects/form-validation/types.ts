@@ -31,5 +31,5 @@ export interface RenderFieldProps {
   value: string;
   error: string;
   validator: (name: string, value: string) => void;
-  handleChange: (name: string, value: string) => void;
+  handleChange: (name: string, value: string | File) => void;
 }

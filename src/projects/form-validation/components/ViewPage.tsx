@@ -9,7 +9,11 @@ const ViewPage = ({ userData, onBack }: ViewPageProps) => {
       {Object.entries(userData).map((field) => (
         <div key={field[0]}>
           <span className="font-bold">{formFieldTitle[field[0]]} :</span>{" "}
-          <span>{field[1]}</span>
+          {field[0] === "file" ? (
+            <img src={field[1]} alt="img" />
+          ) : (
+            <span>{field[1]}</span>
+          )}
         </div>
       ))}
       <Button title="Back" onClick={onBack} />
