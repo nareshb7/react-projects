@@ -1,0 +1,10 @@
+.form-validation {
+    width: 50%;
+    margin: auto;
+    @media (max-width: 967px) {
+        width: 70%;
+      }
+      @media (max-width: 767px) {
+        width: 90%;
+      }
+}

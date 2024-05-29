@@ -1,38 +1,17 @@
-import { ErrorMessage, Input } from "common/Components";
+import { Button } from "common/Components";
 import React, { useState } from "react";
-import { get18YearsAgo } from "../helper";
-
-export type Gender = "Male" | "Female" | "Other";
-
-export interface FormFields {
-  name: string;
-  email: string;
-  mobile: string;
-  password: string;
-  gender: Gender;
-  dob: string;
-  age: number | null;
-  state: string;
-  [key: string]: any;
-}
-export const initialFormFields = {
-  name: "",
-  email: "",
-  mobile: "",
-  password: "",
-  gender: "" as Gender,
-  dob: "",
-  age: null,
-  state: "",
-};
-
-export const namePattern = /^[A-z]+$/;
+import { RenderField, validate } from "../helper";
+import ViewPage from "./ViewPage";
+import { FormFields } from "../types";
+import { config } from "./config";
+import { initialFormFields } from "../constant";
 
 const Form = () => {
   const [formData, setFormData] = useState<FormFields>(initialFormFields);
+  const [userData, setUserData] = useState<FormFields>(initialFormFields);
   const [errors, setErrors] = useState<FormFields>(initialFormFields);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const handleChange = (name: string, value: string) => {
-    console.log(name, value);
     setFormData({ ...formData, [name]: value });
     // If there is error then only we will cal validator function
     if (errors[name]) {
@@ -40,53 +19,49 @@ const Form = () => {
     }
   };
   const validator = (name: string, value: string) => {
-    let error = "";
-
     if (!value) {
-      setErrors({ ...errors, [name]: "This field is required" });
+      setErrors((prev) => ({ ...prev, [name]: "This field is required" }));
       return;
     }
-    if (name === "name") {
-      if (!namePattern.test(value)) {
-        error = "Name must contain only alphabets";
-      }
-    }
-    if (name === "dob") {
-      const pastDate = get18YearsAgo();
-      const selectedDate = new Date(value);
-      if (selectedDate > pastDate) {
-        error = "User Must has 18 years";
-      }
-    }
-    setErrors({ ...errors, [name]: error });
+    const error = validate(name, value);
+    setErrors((prev) => ({ ...prev, [name]: error }));
   };
+  const handleSubmit = () => {
+    const formTotal = Object.entries(formData);
+    const formDataLength = formTotal.filter((val) => val[1]).length;
+    const errorsLength = Object.values(errors).filter((val) => val).length;
+    if (errorsLength === 0 && formDataLength === formTotal.length) {
+      setUserData(formData);
+      setIsSubmitted(true);
+    } else {
+      formTotal.map((field) => {
+        validator(field[0], field[1]);
+      });
+      setIsSubmitted(false);
+    }
+  };
+
   return (
     <div>
-      <div>
-        <div>
-          <label>Name</label>
-          <Input
-            value={formData.name}
-            onBlur={(e) => validator("name", e.target.value)}
-            onChange={(e) => handleChange("name", e.target.value)}
-            name="name"
-          />
-        </div>
-        <ErrorMessage error={errors.name} />
-      </div>
-      <div>
-        <div>
-          <label>DOB</label>
-          <Input
-            max={new Date().toISOString().split("T")[0]}
-            value={formData.dob}
-            onBlur={(e) => validator("dob", e.target.value)}
-            type="date"
-            onChange={(e) => handleChange("dob", e.target.value)}
-          />
-        </div>
-        <ErrorMessage error={errors.dob} />
-      </div>
+      {isSubmitted ? (
+        <ViewPage userData={userData} onBack={() => setIsSubmitted(false)} />
+      ) : (
+        <>
+          {config.map((field) => (
+            <RenderField
+              key={field.key}
+              field={field}
+              error={errors[field.key]}
+              value={formData[field.key]}
+              validator={validator}
+              handleChange={handleChange}
+            />
+          ))}
+          <div>
+            <Button title="Submit" onClick={handleSubmit} />
+          </div>
+        </>
+      )}
     </div>
   );
 };
