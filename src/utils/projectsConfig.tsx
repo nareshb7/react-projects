@@ -64,7 +64,7 @@ export const projectsList: ProjectsListModal[] = [
   {
     id: 10,
     title: "Form Validation",
-    status: "Pending",
+    status: "In Progress",
     path: "/form-validation"
   },
   {

@@ -40,7 +40,6 @@ const Form = () => {
     }
   };
   const validator = (name: string, value: string) => {
-    console.log("BLURRR::::CH", name, value);
     let error = "";
 
     if (!value) {
