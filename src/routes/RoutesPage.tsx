@@ -1,21 +1,21 @@
-import React from "react";
+import React, { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Root from "./Root";
 import NoRouteFound from "./NoRouteFound";
-import Todo from "projects/todolist";
-import Weather from "projects/weather-app";
-import Pagination from "projects/pagination";
-import LoginForm from "projects/loginForm";
-import Login from "projects/loginForm/components/Login";
-import Signup from "projects/loginForm/components/Signup";
-import Home from "projects/loginForm/components/Home";
-import Welcome from "projects/loginForm/components/Welcome";
-import CountdownTimer from "projects/countdownTimer";
-import Modal from "projects/modal";
-import DragDropMain from "projects/dragDrop";
-import ChatMain from "projects/chat-application";
-import DropDownMain from "projects/dropDown";
-import FormValidationMain from "projects/form-validation";
+const Todo = lazy(() => import("projects/todolist"));
+const Weather = lazy(() => import("projects/weather-app"));
+const Pagination = lazy(() => import("projects/pagination"));
+const LoginForm = lazy(() => import("projects/loginForm"));
+const Login = lazy(() => import("projects/loginForm/components/Login"));
+const Signup = lazy(() => import("projects/loginForm/components/Signup"));
+const Home = lazy(() => import("projects/loginForm/components/Home"));
+const Welcome = lazy(() => import("projects/loginForm/components/Welcome"));
+const CountdownTimer = lazy(() => import("projects/countdownTimer"));
+const Modal = lazy(() => import("projects/modal"));
+const DragDropMain = lazy(() => import("projects/dragDrop"));
+const ChatMain = lazy(() => import("projects/chat-application"));
+const DropDownMain = lazy(() => import("projects/dropDown"));
+const FormValidationMain = lazy(() => import("projects/form-validation"));
 
 const router = createBrowserRouter([
   {
@@ -36,47 +36,54 @@ const router = createBrowserRouter([
       },
       {
         path: "/pagination",
-        element: <Pagination />
-      },{
+        element: <Pagination />,
+      },
+      {
         path: "/login-form",
         element: <LoginForm />,
         children: [
           {
-            path: '/login-form/',
-            element: <Home />
+            path: "/login-form/",
+            element: <Home />,
           },
           {
-            path: 'login',
-            element: <Login />
+            path: "login",
+            element: <Login />,
           },
           {
-            path: 'signup',
-            element: <Signup />
+            path: "signup",
+            element: <Signup />,
           },
           {
-            path: 'home',
-            element: <Welcome />
-          }
-        ]
-      }, {
+            path: "home",
+            element: <Welcome />,
+          },
+        ],
+      },
+      {
         path: "/timer",
-        element: <CountdownTimer />
-      }, {
+        element: <CountdownTimer />,
+      },
+      {
         path: "/modal",
-        element: <Modal />
-      }, {
+        element: <Modal />,
+      },
+      {
         path: "/drag-drop",
-        element: <DragDropMain />
-      }, {
+        element: <DragDropMain />,
+      },
+      {
         path: "/chat",
-        element: <ChatMain />
-      }, {
+        element: <ChatMain />,
+      },
+      {
         path: "/dropdown",
-        element: <DropDownMain />
-      }, {
+        element: <DropDownMain />,
+      },
+      {
         path: "/form-validation",
-        element: <FormValidationMain />
-      }
+        element: <FormValidationMain />,
+      },
     ],
   },
 ]);
