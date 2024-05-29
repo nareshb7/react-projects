@@ -48,6 +48,7 @@ const Form = () => {
         validator(field[0], field[1]);
       });
       setIsSubmitted(false);
+      setUserData(initialFormFields);
     }
   };
 
