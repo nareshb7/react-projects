@@ -8,7 +8,7 @@ const ViewPage = ({ userData, onBack }: ViewPageProps) => {
     <div>
       {Object.entries(userData).map((field) => (
         <div key={field[0]}>
-          <span className="font-bold">{formFieldTitle[field[0]]} :</span>{" "}
+          <span className="font-bold inline-block w-32">{formFieldTitle[field[0]]} :</span>{" "}
           {field[0] === "file" ? (
             <img src={field[1]} alt="img" />
           ) : (

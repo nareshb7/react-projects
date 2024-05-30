@@ -68,7 +68,7 @@ const Form = () => {
               handleChange={handleChange}
             />
           ))}
-          <div>
+          <div className='text-center'>
             <Button title="Submit" onClick={handleSubmit} />
           </div>
         </>
