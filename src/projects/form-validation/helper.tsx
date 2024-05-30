@@ -68,10 +68,9 @@ export const RenderField = ({
   handleChange,
 }: RenderFieldProps) => {
   const { key, type, title, placeholder, options } = field;
-  if (inputTypes.includes(type)) {
-    return (
-      <div key={key}>
-        <label className="font-bold">{title}</label>
+  const getComponent = (type: string) => {
+    if (inputTypes.includes(type)) {
+      return (
         <Input
           value={value}
           onBlur={(e) => validator(key, e.target.value)}
@@ -80,14 +79,10 @@ export const RenderField = ({
           placeholder={placeholder}
           type={type}
         />
-        <ErrorMessage error={error} />
-      </div>
-    );
-  }
-  if (type === "file") {
-    return (
-      <div key={key}>
-        <label className="font-bold">{title}</label>
+      );
+    }
+    if (type === "file") {
+      return (
         <Input
           onBlur={(e) => validator(key, e.target.value)}
           onChange={(e) =>
@@ -97,40 +92,35 @@ export const RenderField = ({
           placeholder={placeholder}
           type={type}
         />
-        <ErrorMessage error={error} />
-      </div>
-    );
-  }
-  if (type === "radio") {
-    return (
-      <div key={key}>
-        <span className="font-bold">{title} </span>
-        {options &&
-          options?.map((option) => {
-            return (
-              <label key={option.value}>
-                <Input
-                  name={key}
-                  value={option.value}
-                  type={type}
-                  onChange={(e) => handleChange(key, e.target.value)}
-                />
-                {option.title}
-              </label>
-            );
-          })}
-        <ErrorMessage error={error} />
-      </div>
-    );
-  }
-  if (type === "select") {
-    return (
-      <div key={key}>
-        <span className="font-bold">{title}</span>
+      );
+    }
+    if (type === "radio") {
+      return (
+        <>
+          {/* <span className="font-bold inline-block w-90">{title} </span> */}
+          {options &&
+            options?.map((option) => {
+              return (
+                <label key={option.value}>
+                  <Input
+                    name={key}
+                    value={option.value}
+                    type={type}
+                    onChange={(e) => handleChange(key, e.target.value)}
+                  />
+                  {option.title}
+                </label>
+              );
+            })}
+        </>
+      );
+    }
+    if (type === "select") {
+      return (
         <select
           onChange={(e) => handleChange(key, e.target.value)}
           onBlur={(e) => validator(key, e.target.value)}
-          className="p-2 border"
+          className="p-2 border mx-1"
         >
           <option value="">Select an Option</option>
           {options &&
@@ -140,11 +130,17 @@ export const RenderField = ({
               </option>
             ))}
         </select>
-        <ErrorMessage error={error} />
-      </div>
-    );
-  }
-  return <></>;
+      );
+    }
+  };
+
+  return (
+    <div key={key} className="my-1">
+      <span className="font-bold inline-block w-28">{title}</span>
+      {getComponent(type)}
+      <ErrorMessage error={error} className="ml-32" />
+    </div>
+  );
 };
 // export const RenderField =({field}: RenderFieldProps)=> {
 //     return

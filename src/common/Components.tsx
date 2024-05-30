@@ -44,6 +44,6 @@ export const Input = ({
   );
 };
 
-export const ErrorMessage =({error}:ErrorMessageProps)=> {
-  return error ? <div className="text-error">{error}</div>:<></>
+export const ErrorMessage =({error, className}:ErrorMessageProps)=> {
+  return error ? <div className={`text-error ${className}`}>{error}</div>:<></>
 }
