@@ -16,6 +16,7 @@ const DragDropMain = lazy(() => import("projects/dragDrop"));
 const ChatMain = lazy(() => import("projects/chat-application"));
 const DropDownMain = lazy(() => import("projects/dropDown"));
 const FormValidationMain = lazy(() => import("projects/form-validation"));
+const Carousel = lazy(()=> import("projects/carousel"))
 
 const router = createBrowserRouter([
   {
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
       {
         path: "/form-validation",
         element: <FormValidationMain />,
+      },
+      {
+        path: "/carousel",
+        element: <Carousel />,
       },
     ],
   },
