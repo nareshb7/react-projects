@@ -13,5 +13,6 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
 }
 
 export interface ErrorMessageProps {
-    error : string
+    error : string;
+    className?: string;
   }
