@@ -30,7 +30,7 @@ const Form = () => {
   };
   const validator = (name: string, value: string) => {
     if (!value) {
-      setErrors((prev) => ({ ...prev, [name]: "This field is required" }));
+      setErrors((prev) => ({ ...prev, [name]: "This field is required." }));
       return;
     }
     const error = validate(name, value);
