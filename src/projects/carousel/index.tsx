@@ -49,7 +49,7 @@ const Carousel = () => {
               transform: `translateX(-${currentSlide * 100}%)`,
             }}
           >
-            Image {i + 1}
+            <span className="text">Image {i + 1}</span>
           </div>
         ))}
       </div>
