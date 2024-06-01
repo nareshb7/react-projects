@@ -59,7 +59,7 @@ const CustomDropDown = ({
             className="absolute close-icon bg-blue-500 rounded-50 px-2 py-1"
             onClick={handleClear}
           >
-            X
+            &#x2715;
           </span>
         </div>
         {isOptionsOpen && (
@@ -89,9 +89,6 @@ const CustomDropDown = ({
             </ul>
           </div>
         )}
-      </div>
-      <div className="font-bold my-5">
-        Selected Option: {selectedOption.title}
       </div>
     </div>
   );
