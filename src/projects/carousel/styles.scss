@@ -1,45 +1,47 @@
-.carousel-main {
+.wrapper {
+  margin-bottom: 20px;
+  .carousel-main {
     position: relative;
     overflow: hidden;
     width: 100%;
     max-width: 600px;
     margin: auto;
-  .carousel-slides {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    .carousel-slide {
+    .carousel-slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      .carousel-slide {
         min-width: 100%;
         height: 300px;
         background-size: cover;
         background-position: center;
-      &.active {
-        opacity: 1;
+        &.active {
+          opacity: 1;
+        }
       }
     }
-  }
-  .carousel-control {
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%);
-    background-color: rgba(0,0,0,0.5);
-    color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    &.prev {
-        left: 10px;
+    .carousel-control {
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      &.prev {
+        left: 20px;
+      }
+      &.next {
+        right: 0;
+      }
     }
-    &.next {
-        right: 10px;
-    }
-  }
-  .carousel-indicators {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    bottom: 10px;
-    width: 100%;
-    .carousel-indicator {
+    .carousel-indicators {
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      .carousel-indicator {
         width: 10px;
         height: 10px;
         margin: 0 5px;
@@ -47,8 +49,53 @@
         border-radius: 50%;
         cursor: pointer;
         &.active {
-            background-color: rgba(255, 255, 255, 0.9);
+          background-color: rgba(255, 255, 255, 0.9);
         }
       }
+    }
+  }
+  .slider-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    .slides-container {
+      width: 100%;
+      overflow: hidden;
+      .slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        .slide {
+          flex: 0 0 33%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          .card {
+            width: 90%;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          }
+        }
+      }
+      .slider-control {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%);
+        border: none;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+        z-index: 1;
+        &.prev {
+          left: 20px;
+        }
+        &.next {
+          right: 0;
+        }
+      }
+    }
   }
 }
