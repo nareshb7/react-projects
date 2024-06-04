@@ -10,7 +10,7 @@ const Slider = ({ slides }: SliderProps) => {
     setCurrentIndex((currentIndex - 1 + slides.length) % slides.length);
   };
   const handleNext = () => {
-    setCurrentIndex((currentIndex + 1) % slides.length);
+    setCurrentIndex((currentIndex + 1) % (slides.length-2));
   };
   return (
     <div className="slider-wrapper">
@@ -20,13 +20,13 @@ const Slider = ({ slides }: SliderProps) => {
           className="slides"
           style={{ transform: `translateX(-${currentIndex * 33}%)` }}
         >
-          {slides.map((slide) => {
+          {slides.map((slide, i) => {
             return (
               <div key={slide} className="slide">
                 <div
                   className="card"
                   style={{ backgroundImage: `url(${slide})` }}
-                ></div>
+                >Slide {i+1}</div>
               </div>
             );
           })}
