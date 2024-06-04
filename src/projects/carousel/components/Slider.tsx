@@ -4,7 +4,9 @@ import { SliderProps } from "../types";
 
 const Slider = ({ slides }: SliderProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  
   const handlePrev = () => {
+    console.log("CURRENT:::", currentIndex)
     setCurrentIndex((currentIndex - 1 + slides.length) % slides.length);
   };
   const handleNext = () => {
