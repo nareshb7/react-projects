@@ -70,7 +70,7 @@ export const projectsList: ProjectsListModal[] = [
   {
     id: 11,
     title: "Carousel Component",
-    status: "In Progress",
+    status: "Completed",
     path: "/carousel"
   },
   {
