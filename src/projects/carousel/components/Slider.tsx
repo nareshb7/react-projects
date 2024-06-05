@@ -6,8 +6,7 @@ const Slider = ({ slides }: SliderProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   
   const handlePrev = () => {
-    console.log("CURRENT:::", currentIndex)
-    setCurrentIndex((currentIndex - 1 + slides.length) % slides.length);
+    setCurrentIndex((currentIndex - 1 + slides.length-2) % (slides.length-2));
   };
   const handleNext = () => {
     setCurrentIndex((currentIndex + 1) % (slides.length-2));
