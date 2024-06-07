@@ -1,12 +1,14 @@
+@use "../../base";
+
 .form-validation {
-    width: 50%;
-    background-color: #888;
-    padding: 10px;
-    margin: auto;
-    @media (max-width: 967px) {
-        width: 70%;
-      }
-      @media (max-width: 767px) {
-        width: 90%;
-      }
+  width: 50%;
+  background-color: base.$bg-color;
+  padding: 10px;
+  margin: auto;
+  @media (max-width: 967px) {
+    width: 70%;
+  }
+  @media (max-width: 767px) {
+    width: 90%;
+  }
 }

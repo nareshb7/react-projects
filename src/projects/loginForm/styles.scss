@@ -1,7 +1,9 @@
+@use '../../base';
+
 .login-form {
     width: 100%;
     .section {
-        background-color: #888;
+        background-color: base.$bg-color;
         width: 50%;
         text-align: center;
         min-height: 300px;

@@ -1,8 +1,10 @@
+@use '../../base';
+
 .drag-drop {
     display: flex;
     justify-content: space-between;
     .section {
-        background-color: #888;
+        background-color: base.$bg-color;
         width: 40%;
         text-align: center;
         min-height: 300px;
