@@ -6,10 +6,10 @@ import { store } from "./redux/store";
 const ConnectMethod = () => {
   return (
     <Provider store={store}>
-    <div className="connect-method">
-      <div className="font-bold text-center">ConnectMethod</div>
-      <Connect />
-    </div>
+      <div className="connect-method">
+        <div className="font-bold text-center">ConnectMethod</div>
+        <Connect />
+      </div>
     </Provider>
   );
 };
