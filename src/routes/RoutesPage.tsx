@@ -18,6 +18,7 @@ const DropDownMain = lazy(() => import("projects/dropDown"));
 const FormValidationMain = lazy(() => import("projects/form-validation"));
 const Carousel = lazy(()=> import("projects/carousel"))
 const ResponsiveLayout = lazy(() => import("projects/responsiveLayout"))
+const ReduxStore = lazy(()=> import("projects/reduxStore"))
 
 const router = createBrowserRouter([
   {
@@ -93,7 +94,10 @@ const router = createBrowserRouter([
       {
         path: "/responsiveLayout",
         element: <ResponsiveLayout />,
-      },
+      },{
+        path: "/redux",
+        element: <ReduxStore />
+      }
     ],
   },
 ]);

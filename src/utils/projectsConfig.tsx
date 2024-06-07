@@ -82,7 +82,7 @@ export const projectsList: ProjectsListModal[] = [
   {
     id: 13,
     title: "Redux Store",
-    status: "Pending",
+    status: "In Progress",
     path: "/redux"
   },
   {
