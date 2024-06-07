@@ -17,6 +17,7 @@ const ChatMain = lazy(() => import("projects/chat-application"));
 const DropDownMain = lazy(() => import("projects/dropDown"));
 const FormValidationMain = lazy(() => import("projects/form-validation"));
 const Carousel = lazy(()=> import("projects/carousel"))
+const ResponsiveLayout = lazy(() => import("projects/responsiveLayout"))
 
 const router = createBrowserRouter([
   {
@@ -88,6 +89,10 @@ const router = createBrowserRouter([
       {
         path: "/carousel",
         element: <Carousel />,
+      },
+      {
+        path: "/responsiveLayout",
+        element: <ResponsiveLayout />,
       },
     ],
   },
