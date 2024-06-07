@@ -6,7 +6,7 @@ import { slides } from "./slides";
 
 const CarouselMain = () => {
   return (
-    <div className="wrapper">
+    <div className="carousel-wrapper">
       <Carousel slides={slides} intervalTime={1000} />
       <Slider slides={slides} />
     </div>
