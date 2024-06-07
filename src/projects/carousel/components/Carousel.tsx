@@ -9,7 +9,6 @@ const Carousel = ({ slides, intervalTime = 1000 }: CarouselProps) => {
     setCurrentSlide((currentSlide - 1 + slides.length) % slides.length);
   };
   const handleNext = () => {
-    console.log("CHECL::;")
     setCurrentSlide((currentSlide + 1) % slides.length);
   };
   const goToSlide = (slide: number) => {
