@@ -76,7 +76,7 @@ export const projectsList: ProjectsListModal[] = [
   {
     id: 12,
     title: "Responsive Layout",
-    status: "In Progress",
+    status: "Completed",
     path: "/responsiveLayout"
   },
   {
