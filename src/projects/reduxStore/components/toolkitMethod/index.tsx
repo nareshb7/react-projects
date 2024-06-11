@@ -6,7 +6,7 @@ import Counter from "./Counter";
 const ToolKitMethod = () => {
   return (
     <Provider store={store}>
-      <div>ToolKitMethod</div>
+      <div className="font-bold text-center">ToolKitMethod</div>
       <Counter />
     </Provider>
   );
