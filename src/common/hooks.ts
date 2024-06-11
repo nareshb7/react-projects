@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 
 export const useOutsideClick = (
   ref: React.RefObject<HTMLDivElement>,
@@ -16,3 +16,14 @@ export const useOutsideClick = (
     }
   }, []);
 };
+
+
+export const useDebounce =(func:()=> void, delay:number)=> {
+  let timeOut = useRef(null)
+  const debounce = useCallback(()=> {
+    
+  },[func, delay])
+
+  return debounce
+}
+
