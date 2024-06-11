@@ -88,7 +88,7 @@ export const projectsList: ProjectsListModal[] = [
   {
     id: 14,
     title: "Infinite Scroll Component",
-    status: "Pending",
+    status: "In Progress",
     path: "/infinite-scroll"
   },
   {

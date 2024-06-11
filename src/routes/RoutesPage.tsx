@@ -19,6 +19,7 @@ const FormValidationMain = lazy(() => import("projects/form-validation"));
 const Carousel = lazy(()=> import("projects/carousel"))
 const ResponsiveLayout = lazy(() => import("projects/responsiveLayout"))
 const ReduxStore = lazy(()=> import("projects/reduxStore"))
+const InfiniteScrollMain = lazy(()=> import("projects/infiniteScroll"))
 
 const router = createBrowserRouter([
   {
@@ -97,6 +98,9 @@ const router = createBrowserRouter([
       },{
         path: "/redux",
         element: <ReduxStore />
+      }, {
+        path: "/infinite-scroll",
+        element: <InfiniteScrollMain />
       }
     ],
   },
