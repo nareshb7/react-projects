@@ -1,4 +1,18 @@
 .infinite-scroll-wrapper {
-    width: 50%;
-    margin: auto;
+  width: 50%;
+  margin: auto;
+  .infinite-scroll-list {
+    max-height: 300px;
+    overflow: auto;
+    .infinite-scroll-item {
+      padding: 10px 20px;
+      margin-block: 3px;
+      background-color: #888;
+    }
+    .loading {
+      background-color: #ddd;
+      padding: 10px 20px;
+      margin-block: 3px;
+    }
+  }
 }
