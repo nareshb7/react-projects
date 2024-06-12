@@ -67,7 +67,13 @@ const Quiz = () => {
       <div>
         <div className="font-semibold text-lg border border-b-2 text-center">
           {technology} Quiz
-        <div>{technology !== "React" && <span className="font font-mono font-light text-sm">Alert: For now we are showing react questions only</span>}</div>
+          <div>
+            {technology !== "React" && (
+              <span className="font font-mono font-light text-sm">
+                Alert: For now we are showing react questions only
+              </span>
+            )}
+          </div>
         </div>
         {questions.map((question) => (
           <QuestionCard
