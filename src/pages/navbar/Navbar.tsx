@@ -12,11 +12,11 @@ const Navbar = () => {
           <div className="flex">
             <div className="flex-shrink-0 logo">
               <NavLink to='/' className="text-white font-bold text-lg ">
-                <img src={logo} />
+                <img src={logo} alt='logo' />
               </NavLink>
             </div>
           </div>
-          <div className="hidden md:block">
+          <ul className="hidden md:block">
             {projectsList.map((project) => {
               return (
                 <li
@@ -29,8 +29,8 @@ const Navbar = () => {
                       project.status === "Completed"
                         ? "green"
                         : project.status === "In Progress"
-                        ? "yellow"
-                        : "red"
+                        ? "text-white"
+                        : "text-cyan-100"
                     }`}
                   >
                     {project.title}
@@ -38,7 +38,7 @@ const Navbar = () => {
                 </li>
               );
             })}
-          </div>
+          </ul>
         </div>
       </div>
     </nav>
