@@ -1,0 +1,266 @@
+[
+  {
+    "id": 1,
+    "question": "What is React?",
+    "options": [
+      { "id": 1, "value": "A JavaScript library for building user interfaces" },
+      { "id": 2, "value": "A CSS framework for designing responsive websites" },
+      { "id": 3, "value": "A programming language for backend development" },
+      { "id": 4, "value": "A database management system" }
+    ],
+    "answer": 1,
+    "explanation": "React is a JavaScript library developed by Facebook for building user interfaces, particularly for single-page applications.",
+    "level": "Easy",
+    "topic": ""
+  },
+  {
+    "id": 2,
+    "question": "What is JSX?",
+    "options": [
+      { "id": 1, "value": "A library for state management in React" },
+      { "id": 2, "value": "A database query language" },
+      { "id": 3, "value": "A syntax extension for JavaScript" },
+      { "id": 4, "value": "A testing framework for JavaScript" }
+    ],
+    "answer": 3,
+    "explanation": "JSX stands for JavaScript XML. It allows you to write HTML elements in JavaScript and place them in the DOM without using createElement and/or appendChild.",
+    "level": "Easy",
+    "topic": ""
+  },
+  {
+    "id": 3,
+    "question": "Which method is used to render a React element to the DOM?",
+    "options": [
+      { "id": 1, "value": "Component.render()" },
+      { "id": 2, "value": "ReactDOM.render()" },
+      { "id": 3, "value": "React.render()" },
+      { "id": 4, "value": "DOM.render()" }
+    ],
+    "answer": 2,
+    "explanation": "ReactDOM.render() is the method used to render a React element into a DOM container.",
+    "level": "Easy",
+    "topic": ""
+  },
+  {
+    "id": 4,
+    "question": "What is a React component?",
+    "options": [
+      { "id": 1, "value": "A tool for debugging React applications" },
+      { "id": 2, "value": "A built-in React library" },
+      {
+        "id": 3,
+        "value": "A function or class that optionally accepts inputs and returns a React element"
+      },
+      { "id": 4, "value": "A special kind of HTML element" }
+    ],
+    "answer": 3,
+    "explanation": "React components are the building blocks of a React application's UI. They can be defined as functions or classes.",
+    "level": "Easy",
+    "topic": ""
+  },
+  {
+    "id": 5,
+    "question": "How do you create a React component using a function?",
+    "options": [
+      {
+        "id": 1,
+        "value": "function MyComponent() { return <div>Hello</div>; }"
+      },
+      {
+        "id": 2,
+        "value": "const MyComponent = new Component({ <div>Hello</div> });"
+      },
+      {
+        "id": 3,
+        "value": "React.createComponent('MyComponent', function() { return <div>Hello</div>; })"
+      },
+      {
+        "id": 4,
+        "value": "createComponent('MyComponent', () => { <div>Hello</div> });"
+      }
+    ],
+    "answer": 1,
+    "explanation": "Functional components are simple functions that return React elements.",
+    "level": "Easy",
+    "topic": ""
+  },
+  {
+    "id": 6,
+    "question": "What is the purpose of state in a React component?",
+    "options": [
+      { "id": 1, "value": "To manage the component's lifecycle" },
+      { "id": 2, "value": "To style the component" },
+      {
+        "id": 3,
+        "value": "To store the component's persistent data"
+      },
+      { "id": 4, "value": "To handle events" }
+    ],
+    "answer": 3,
+    "explanation": "State is used to store data that the component needs to remember and re-render when it changes.",
+    "level": "Easy",
+    "topic": ""
+  },
+  {
+    "id": 7,
+    "question": "How do you update the state in a React component?",
+    "options": [
+      { "id": 1, "value": "this.changeState({ key: value })" },
+      { "id": 2, "value": "this.setState({ key: value })" },
+      {
+        "id": 3,
+        "value": "this.state = { key: value }"
+      },
+      { "id": 4, "value": "this.updateState({ key: value })" }
+    ],
+    "answer": 2,
+    "explanation": "this.setState() is the method used to update the state in a class component. For functional components, useState hook is used.",
+    "level": "Easy",
+    "topic": ""
+  },
+  {
+    "id": 8,
+    "question": "What is the virtual DOM?",
+    "options": [
+      { "id": 1, "value": "A lightweight copy of the actual DOM" },
+      {
+        "id": 2,
+        "value": "A JavaScript object that replicates the structure of a DOM tree"
+      },
+      {
+        "id": 3,
+        "value": "A faster way to manipulate the DOM"
+      },
+      { "id": 4, "value": "All of the above" }
+    ],
+    "answer": 4,
+    "explanation": "The virtual DOM is a concept where a virtual representation of the real DOM is kept in memory and synced with the real DOM by libraries such as React.",
+    "level": "Easy",
+    "topic": ""
+  },
+  {
+    "id": 9,
+    "question": "How do you pass data to a React component?",
+    "options": [
+      { "id": 1, "value": "Using events" },
+      { "id": 2, "value": "Using state" },
+      {
+        "id": 3,
+        "value": "Using methods"
+      },
+      { "id": 4, "value": "Using props" }
+    ],
+    "answer": 4,
+    "explanation": "Props (short for properties) are the way you pass data from parent to child components in React.",
+    "level": "Easy",
+    "topic": ""
+  },
+  {
+    "id": 10,
+    "question": "What is the use of the key prop in React?",
+    "options": [
+      { "id": 1, "value": "To bind event handlers" },
+      { "id": 2, "value": "To set the state of the component" },
+      {
+        "id": 3,
+        "value": "To uniquely identify elements in a list"
+      },
+      { "id": 4, "value": "To trigger a re-render" }
+    ],
+    "answer": 3,
+    "explanation": "The key prop helps React identify which items have changed, are added, or are removed, thus optimizing the rendering process.",
+    "level": "Easy",
+    "topic": ""
+  },
+  {
+    "id": 11,
+    "question": "Which hook is used to add lifecycle methods to functional components?",
+    "options": [
+      { "id": 1, "value": "useContext" },
+      { "id": 2, "value": "useEffect" },
+      {
+        "id": 3,
+        "value": "useState"
+      },
+      { "id": 4, "value": "useRef" }
+    ],
+    "answer": 2,
+    "explanation": "useEffect is a hook that allows you to perform side effects in functional components, serving a similar purpose to lifecycle methods in class components.",
+    "level": "Easy",
+    "topic": ""
+  },
+  {
+    "id": 12,
+    "question": "What is the purpose of the useState hook?",
+    "options": [
+      { "id": 1, "value": "To add props to functional components" },
+      { "id": 2, "value": "To add state to functional components" },
+      {
+        "id": 3,
+        "value": "To add context to functional components"
+      },
+      { "id": 4, "value": "To add effects to functional components" }
+    ],
+    "answer": 2,
+    "explanation": "useState is a hook that allows you to add state to functional components.",
+    "level": "Easy",
+    "topic": ""
+  },
+  {
+    "id": 13,
+    "question": "How do you create a context in React?",
+    "options": [
+      { "id": 1, "value": "React.createContextHook()" },
+      { "id": 2, "value": "React.useContext()" },
+      {
+        "id": 3,
+        "value": "React.createElement()"
+      },
+      { "id": 4, "value": "React.createContext()" }
+    ],
+    "answer": 4,
+    "explanation": "React.createContext() is used to create a context object that can be used to share data across components without passing props manually through every level of the component tree.",
+    "level": "Easy",
+    "topic": ""
+  },
+  {
+    "id": 14,
+    "question": "How do you handle events in React?",
+    "options": [
+      { "id": 1, "value": "Using lowercase syntax and passing a string" },
+      { "id": 2, "value": "Using camelCase syntax and passing a function" },
+      {
+        "id": 3,
+        "value": "Using the onEvent attribute"
+      },
+      { "id": 4, "value": "Using CSS styles" }
+    ],
+    "answer": 2,
+    "explanation": "In React, event handlers are written in camelCase syntax and you pass a function as the event handler.",
+    "level": "Easy",
+    "topic": ""
+  },
+  {
+    "id": 15,
+    "question": "What does the setState method do in a React class component?",
+    "options": [
+      {
+        "id": 1,
+        "value": "Merges the new state with the current state and triggers a re-render"
+      },
+      {
+        "id": 2,
+        "value": "Replaces the current state with the new state and triggers a re-render"
+      },
+      {
+        "id": 3,
+        "value": "Deletes the current state"
+      },
+      { "id": 4, "value": "Prevents the component from re-rendering" }
+    ],
+    "answer": 1,
+    "explanation": "setState merges the provided state object with the current state and triggers a re-render of the component.",
+    "level": "Easy",
+    "topic": ""
+  }
+]

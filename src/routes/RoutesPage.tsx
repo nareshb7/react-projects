@@ -20,6 +20,7 @@ const Carousel = lazy(()=> import("projects/carousel"))
 const ResponsiveLayout = lazy(() => import("projects/responsiveLayout"))
 const ReduxStore = lazy(()=> import("projects/reduxStore"))
 const InfiniteScrollMain = lazy(()=> import("projects/infiniteScroll"))
+const Quiz = lazy(()=> import("projects/quiz-application"))
 
 const router = createBrowserRouter([
   {
@@ -101,6 +102,10 @@ const router = createBrowserRouter([
       }, {
         path: "/infinite-scroll",
         element: <InfiniteScrollMain />
+      },
+      {
+        path: "/quiz",
+        element: <Quiz />
       }
     ],
   },
