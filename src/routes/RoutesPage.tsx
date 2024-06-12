@@ -21,6 +21,7 @@ const ResponsiveLayout = lazy(() => import("projects/responsiveLayout"))
 const ReduxStore = lazy(()=> import("projects/reduxStore"))
 const InfiniteScrollMain = lazy(()=> import("projects/infiniteScroll"))
 const Quiz = lazy(()=> import("projects/quiz-application"))
+const Calculator =lazy(()=> import("projects/calculator"))
 
 const router = createBrowserRouter([
   {
@@ -106,6 +107,10 @@ const router = createBrowserRouter([
       {
         path: "/quiz",
         element: <Quiz />
+      },
+      {
+        path: "/calculator",
+        element: <Calculator />
       }
     ],
   },
