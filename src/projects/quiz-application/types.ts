@@ -23,3 +23,7 @@ export interface QuestionCardProps {
   userAnswer: number;
   finalAnswer: number;
 }
+
+export interface AnswerType {
+  [key: number]: number;
+}

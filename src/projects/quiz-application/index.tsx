@@ -1,7 +1,7 @@
 import { Button } from "common/Components";
 import React, { useState } from "react";
 import QuestionCard from "./components/QuestionCard";
-import { Question, TechnologyType } from "./types";
+import { AnswerType, Question, TechnologyType } from "./types";
 import { getQuestions } from "./helper";
 
 const technologies: TechnologyType[] = ["React", "HTML", "CSS", "Node JS"];
@@ -9,14 +9,11 @@ const technologies: TechnologyType[] = ["React", "HTML", "CSS", "Node JS"];
 const Quiz = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [questions, setQuestions] = useState<Question[]>(getQuestions("React"));
-  const [answers, setAnswers] = useState<{
-    [key: number]: number;
-  }>({});
-  const [finalAnswers, setFinalAnswers] = useState<{
-    [key: number]: number;
-  }>({});
+  const [answers, setAnswers] = useState<AnswerType>({});
+  const [finalAnswers, setFinalAnswers] = useState<AnswerType>({});
   const [score, setScore] = useState(0);
   const [technology, setTechnology] = useState<TechnologyType>("React");
+  
   const handleChange = (id: number, answer: number) => {
     setAnswers((prev) => ({ ...prev, [id]: answer }));
   };
