@@ -29,7 +29,6 @@ const Quiz = () => {
     });
     setFinalAnswers(answers);
     setScore(score);
-    console.log("SUBMIT::", answers, score);
     alert(`Your ${technology} score is ${score}`);
   };
   const handleClear = () => {

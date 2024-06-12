@@ -9,7 +9,6 @@ const ChatComponent = ({ userData, handleBack }: ChatComponentProps) => {
   socket
     .off("newMessage")
     .on("newMessage", (latestMessages, roomMessages, total) => {
-      console.log("room::::", { roomMessages, total });
       setMessages(roomMessages);
     });
   const sendMessage = () => {
