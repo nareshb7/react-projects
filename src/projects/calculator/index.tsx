@@ -45,7 +45,7 @@ const calculator = (char: string, valueA: number, valueB: number) => {
 };
 
 const Calculator = () => {
-  const [value, setValue] = useState<any>("");
+  const [displayValue, setDisplayValue] = useState<any>("");
   const [result, setResult] = useState(0);
   const [lastKey, setLastKey] = useState<any>("");
   const handleClick = (key: string, type: string) => {
@@ -60,14 +60,14 @@ const Calculator = () => {
     if (type === "number") {
       setLastKey(key);
     }
-    setValue(`${value}${key}`);
+    setDisplayValue(`${displayValue}${key}`);
   };
   const showResult = () => {
-    setValue(result);
+    setDisplayValue(result);
     setResult(0);
   };
   const handleClear = () => {
-    setValue("");
+    setDisplayValue("");
     setResult(0);
     setLastKey("");
   };
@@ -75,12 +75,12 @@ const Calculator = () => {
     <div className="calculator-wrapper">
       <div className="font-bold text-center text-2xl">Calculator</div>
       <div className="calculator">
-        <input type="text" className="input" value={value} disabled />
+        <input type="text" className="input" value={displayValue} disabled />
         <div>
           <span className="clear" onClick={handleClear}>
             Clear
           </span>
-          <span className="clear">Del</span>
+          <span className="clear">X</span>
         </div>
         <div className="keyboard">
           {keys.map((key) => (
