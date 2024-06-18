@@ -20,9 +20,9 @@ const keys = [
   { key: "=", type: "char" },
 ];
 
-const calculator = (char: string, valueA: number, valueB: number) => {
+const calculator = (char: string, valueA: string, valueB: string) => {
   if (!valueA || !valueB) {
-    return valueB;
+    return Number(valueB);
   }
   const num1 = Number(valueA);
   const num2 = Number(valueB);
@@ -48,16 +48,20 @@ const Calculator = () => {
   const [displayValue, setDisplayValue] = useState<any>("");
   const [result, setResult] = useState(0);
   const [lastKey, setLastKey] = useState<any>("");
+  const [valueA, setValueA] = useState<string| null>(null)
+  const [valueB, setValueB] = useState<string | null>(null)
   const handleClick = (key: string, type: string) => {
     if (key === "=") {
       showResult();
       return;
     }
     if (type === "char") {
-      const res = calculator(key, result, lastKey);
+      const res = calculator(key, valueA as string, valueB as string);
+      setValueB(""+res)
       setResult(res);
     }
     if (type === "number") {
+      setValueA(key)
       setLastKey(key);
     }
     setDisplayValue(`${displayValue}${key}`);
