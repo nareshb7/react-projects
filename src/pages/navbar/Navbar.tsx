@@ -29,7 +29,7 @@ const Navbar = () => {
                       project.status === "Completed"
                         ? "green"
                         : project.status === "In Progress"
-                        ? "text-white"
+                        ? "text-yellow-300"
                         : "text-cyan-100"
                     }`}
                   >
