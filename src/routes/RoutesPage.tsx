@@ -22,6 +22,8 @@ const ReduxStore = lazy(()=> import("projects/reduxStore"))
 const InfiniteScrollMain = lazy(()=> import("projects/infiniteScroll"))
 const Quiz = lazy(()=> import("projects/quiz-application"))
 const Calculator =lazy(()=> import("projects/calculator"))
+const ShoppingKart = lazy(()=> import('projects/e-commerce'))
+const ItemsList = lazy(()=> import("projects/e-commerce/components/ItemsList"))
 
 const router = createBrowserRouter([
   {
@@ -111,6 +113,16 @@ const router = createBrowserRouter([
       {
         path: "/calculator",
         element: <Calculator />
+      },
+      {
+        path:'/e-commerce',
+        element: <ShoppingKart />,
+        children: [
+          {
+            path: "list/:type",
+            element: <ItemsList />
+          }
+        ]
       }
     ],
   },

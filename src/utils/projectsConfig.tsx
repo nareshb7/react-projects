@@ -106,7 +106,7 @@ export const projectsList: ProjectsListModal[] = [
   {
     id: 17,
     title: "E-Commerce",
-    status: "Pending",
+    status: "In Progress",
     path: "/e-commerce"
   },
   {
