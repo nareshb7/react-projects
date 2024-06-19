@@ -4,6 +4,12 @@
     .nav-bar {
         display: flex;
         justify-content: space-around;
+        .logo {
+            width: 50px;
+            img {
+                border-radius: 50%;
+            }
+        }
         .nav-list {
             li {
                 display: inline-block;
