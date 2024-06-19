@@ -6,8 +6,8 @@ const Table = ({ data, isLoading, hasData, loadMore }: TableProps) => {
   const handleScroll = () => {
     const { scrollTop, scrollHeight, clientHeight } =
       divRef.current as HTMLDivElement;
-    if (scrollTop + clientHeight >= scrollHeight - 5) {
-      hasData && loadMore(data.length);
+    if (scrollTop + clientHeight >= scrollHeight - 5 && hasData && !isLoading) {
+      loadMore(data.length);
     }
   };
   useEffect(() => {
