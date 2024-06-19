@@ -27,7 +27,7 @@ const QuestionCard = ({
       <ul className="px-2">
         {options.map((option) => {
           return (
-            <li>
+            <li key={option.id}>
               <label>
                 <input
                   type="radio"
