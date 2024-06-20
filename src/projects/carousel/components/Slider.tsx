@@ -20,10 +20,15 @@ const Slider = <T,>({ slides, renderCard }: SliderProps<T>) => {
       <div className="slides-container">
         <div
           className="slides"
-          style={{ transform: `translateX(-${currentIndex * 33}%)` }}
+          style={{ transform: `translateX(-${currentIndex * 34}%)` }}
         >
           {slides.map((slide, i) => {
-            return <div className="slide" key={i}> {renderCard(slide, i)}</div>;
+            return (
+              <div className="slide" key={i}>
+                {" "}
+                {renderCard(slide, i)}
+              </div>
+            );
           })}
         </div>
         {currentIndex > 0 && (
@@ -33,13 +38,11 @@ const Slider = <T,>({ slides, renderCard }: SliderProps<T>) => {
             onClick={handlePrev}
           />
         )}
-        {currentIndex < slides.length-3 && (
-          <Button
-            className="slider-control next"
-            title="&#10095;"
-            onClick={handleNext}
-          />
-        )}
+        <Button
+          className="slider-control next"
+          title="&#10095;"
+          onClick={handleNext}
+        />
       </div>
     </div>
   );
