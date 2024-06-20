@@ -139,4 +139,10 @@ export const projectsList: ProjectsListModal[] = [
     status: "Pending",
     path: "/image-editor"
   },
+  {
+    id: 23,
+    title: "Lift Elevator",
+    status: "Pending",
+    path: '/lift-elevator'
+  }
 ];
