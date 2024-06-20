@@ -1,5 +1,8 @@
-export interface SliderProps {
-    slides: string[]
+import { ReactElement } from "react";
+
+export interface SliderProps<T> {
+    slides: T[]
+    renderCard: (item: T, index:number) => ReactElement
 }
 
 export interface CarouselProps {

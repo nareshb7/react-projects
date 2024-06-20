@@ -1,0 +1,44 @@
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 90%;
+  margin: auto;
+  .slides-container {
+    width: 100%;
+    overflow: hidden;
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      .slide {
+        flex: 0 0 33%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .card {
+          width: 90%;
+          height: 300px;
+          background-size: cover;
+          background-position: center;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+    .slider-control {
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%);
+      border: none;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+      z-index: 1;
+      &.prev {
+        left: 20px;
+      }
+      &.next {
+        right: 0;
+      }
+    }
+  }
+}
