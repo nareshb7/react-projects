@@ -24,6 +24,8 @@ const Quiz = lazy(()=> import("projects/quiz-application"))
 const Calculator =lazy(()=> import("projects/calculator"))
 const ShoppingKart = lazy(()=> import('projects/e-commerce'))
 const ItemsList = lazy(()=> import("projects/e-commerce/components/ItemsList"))
+const HomePage = lazy(()=> import("projects/e-commerce/components/Homepage"))
+const ItemPage = lazy(()=> import("projects/e-commerce/components/item-pages"))
 
 const router = createBrowserRouter([
   {
@@ -119,8 +121,16 @@ const router = createBrowserRouter([
         element: <ShoppingKart />,
         children: [
           {
+            path: '',
+            element: <HomePage/>
+          },
+          {
             path: "list/:type",
             element: <ItemsList />
+          },
+          {
+            path: ":name",
+            element: <ItemPage />
           }
         ]
       }
