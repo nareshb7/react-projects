@@ -1,11 +1,13 @@
 import React from "react";
 import { ImageCard } from "./utils/ImageCard";
 import { LaptopDataType, MobileDataType } from "./types";
+import { priceTag } from "utils/util";
+import { Tags } from "./store/CartReducer";
 
 export const renderMobileCard = (
   mobile: MobileDataType,
   i: number,
-  onClick: (id: number, title: string, tag:string) => void
+  onClick: (id: number, title: string, tag: Tags) => void
 ) => {
   return (
     <div
@@ -20,9 +22,9 @@ export const renderMobileCard = (
         {i}.{mobile.title}({mobile.color}, {mobile.ram}GB, {mobile.rom}GB)
       </span>
       <div>
-        <del>&#x20B9;{mobile.actualPrice}/-</del>{" "}
+        <del> {priceTag(mobile.actualPrice)}</del>{" "}
         <span>{mobile.discount}%</span>{" "}
-        <span>&#x20B9;{mobile.finalPrice}/-</span>
+        <span>{priceTag(mobile.finalPrice)}</span>
       </div>
     </div>
   );
@@ -31,16 +33,16 @@ export const renderMobileCard = (
 export const renderLaptopCard = (
   laptop: LaptopDataType,
   i: number,
-  onClick: (id: number, title: string, tag: string) => void
+  onClick: (id: number, title: string, tag: Tags) => void
 ) => {
   return (
     <div
-      className="w-[100%] h-[420px] bg-slate-300 m-2 rounded"
+      className="w-[100%] bg-slate-300 m-2 rounded min-h-[420px]"
       onClick={() => onClick(laptop.id, laptop.title, laptop.tag)}
     >
       <ImageCard
         url={laptop.imageUrl}
-        className="w-[300px] h-[250px] p-2 mx-auto"
+        className="w-[100%] h-[250px] p-2 mx-auto"
       />
       <span className="ml-1">
         {i}.{laptop.title} ({laptop.ram}GB, {laptop.rom}GB)
@@ -56,9 +58,9 @@ export const renderLaptopCard = (
         </li>
         <li> {laptop.rating}*</li>
         <li>
-          <del>&#x20B9;{laptop.actualPrice}/-</del>{" "}
+          <del> {priceTag(laptop.actualPrice)}</del>{" "}
           <span>{laptop.discount}%</span>{" "}
-          <span>&#x20B9;{laptop.finalPrice}/-</span>
+          <span>{priceTag(laptop.finalPrice)}</span>
         </li>
       </ul>
     </div>

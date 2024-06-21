@@ -1,12 +1,12 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 
-const ItemsList = () => {
+const ProductList = () => {
     const {type} = useParams()
     console.log("Params::", type)
   return (
-    <div>ItemsList - {type}</div>
+    <div>ProductList - {type}</div>
   )
 }
 
-export default ItemsList
+export default ProductList

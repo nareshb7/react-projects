@@ -5,7 +5,7 @@ import { Button } from "common/Components";
 
 const Navbar = () => {
   return (
-    <div className="nav-bar">
+    <div className="nav-bar bg-blue-500 shadow-xl">
       <div className="flex-shrink-0 flex items-center gap-1">
         <NavLink to="/e-commerce" className=" logo inline-block">
           <img src={logo} alt="logo" />
@@ -25,6 +25,9 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink to="list/electronics">Electronics</NavLink>
+        </li>
+        <li>
+          <NavLink to="cart">Cart</NavLink>
         </li>
       </ul>
     </div>

@@ -23,9 +23,10 @@ const InfiniteScrollMain = lazy(()=> import("projects/infiniteScroll"))
 const Quiz = lazy(()=> import("projects/quiz-application"))
 const Calculator =lazy(()=> import("projects/calculator"))
 const ShoppingKart = lazy(()=> import('projects/e-commerce'))
-const ItemsList = lazy(()=> import("projects/e-commerce/components/ItemsList"))
+const ProductsList = lazy(()=> import("projects/e-commerce/components/ProductsList"))
 const HomePage = lazy(()=> import("projects/e-commerce/components/Homepage"))
-const ItemPage = lazy(()=> import("projects/e-commerce/components/item-pages"))
+const ItemPage = lazy(()=> import("projects/e-commerce/components/product-pages"))
+const EcommerceCart = lazy(()=> import("projects/e-commerce/components/cart"))
 
 const router = createBrowserRouter([
   {
@@ -126,7 +127,11 @@ const router = createBrowserRouter([
           },
           {
             path: "list/:type",
-            element: <ItemsList />
+            element: <ProductsList />
+          },
+          {
+            path: "cart",
+            element: <EcommerceCart />
           },
           {
             path: ":name",

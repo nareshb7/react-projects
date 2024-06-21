@@ -1,15 +1,19 @@
-import React from 'react'
-import "./styles.scss"
-import Navbar from './components/Navbar'
-import { Outlet } from 'react-router-dom'
+import React from "react";
+import "./styles.scss";
+import Navbar from "./components/Navbar";
+import { Outlet } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 
 const ShoppingKart = () => {
   return (
-    <div className='ShoppingKart-wrapper'>
+    <Provider store={store}>
+      <div className="ShoppingKart-wrapper">
         <Navbar />
         <Outlet />
-    </div>
-  )
-}
+      </div>
+    </Provider>
+  );
+};
 
-export default ShoppingKart
+export default ShoppingKart;
