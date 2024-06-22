@@ -22,3 +22,13 @@ export const scrollToTop = (ref: React.RefObject<HTMLElement>) => {
     });
   }
 };
+
+export const debounce =(fn: Function, d: number)=> {
+  let timer: NodeJS.Timeout;
+  return (...args: any) => {
+    clearTimeout(timer)
+    timer = setTimeout(()=> {
+      fn(...args)
+    },d)
+  }
+}
