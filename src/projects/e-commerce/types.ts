@@ -5,7 +5,9 @@ export interface SpecificationType {
   value: string;
 }
 export interface SpecificationsType {
-  [key: string]: SpecificationType[];
+  [key: string]: {
+    [key: string]: string
+  }
 }
 
 export interface MobileDataType {
@@ -53,6 +55,11 @@ export interface ImageCardProps {
 export interface EachItemPageProps {
   id: number;
   name: string;
+}
+
+export interface HomePageDataModel {
+  laptops: LaptopDataType[];
+  mobiles: MobileDataType[];
 }
 
 

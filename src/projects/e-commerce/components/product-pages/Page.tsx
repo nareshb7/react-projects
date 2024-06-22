@@ -4,7 +4,7 @@ import { LaptopDataType, MobileDataType } from "projects/e-commerce/types";
 import { ImageCard } from "projects/e-commerce/utils/ImageCard";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { priceTag, star } from "utils/util";
 
 export interface PageProps {
@@ -14,8 +14,12 @@ export interface PageProps {
 
 const Page = ({ selectedItem, type }: PageProps) => {
   const dispatch = useDispatch();
-  const handleAddToCart = () => {
-    dispatch(addToCart({ type, id: selectedItem.id }));
+  const navigate = useNavigate()
+  const handleAddToCart = () => { 
+
+    console.log("SELECT:::", type, selectedItem.id)
+    dispatch(addToCart({ type: selectedItem.tag, id: selectedItem.id }));
+    navigate("/e-commerce/cart")
   };
 
   return (
@@ -23,7 +27,7 @@ const Page = ({ selectedItem, type }: PageProps) => {
       <div className="images-section w-[35%] h-[500px] border border-gray-400 m-1 p-2">
         <ImageCard
           url={selectedItem.imageUrl}
-          className="w-[200px] h-[200px] mx-auto"
+          className="w-[300px] h-[300px] mx-auto"
         />
         <div className="mx-auto w-[80%] my-2">
           <Button title="Add to cart" onClick={handleAddToCart} />
@@ -125,22 +129,22 @@ const Page = ({ selectedItem, type }: PageProps) => {
           {selectedItem.specifications &&
             Object.keys(selectedItem?.specifications).map((specifcation) => {
               return (
-                <div className="p-2 border-gray-400 border-b">
+                <div key={specifcation} className="p-2 border-gray-400 border-b">
                   <h3 className=" text-gray-400 text-xl my-2">
                     {specifcation}
                   </h3>
                   <table>
                     <tbody>
-                      {selectedItem.specifications[specifcation].map(
+                      {Object.keys(selectedItem.specifications[specifcation]).map(
                         (option) => (
-                          <tr>
+                          <tr key={option}>
                             <td>
                               <span className="text-gray-600 inline-block w-[150px]">
-                                {option.key}
+                                {option}
                               </span>
                             </td>
                             <td>
-                              <span>{option.value}</span>
+                              <span>{selectedItem.specifications[specifcation][option]}</span>
                             </td>
                           </tr>
                         )

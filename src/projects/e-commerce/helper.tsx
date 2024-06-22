@@ -19,7 +19,7 @@ export const renderMobileCard = (
         className="w-[250px] h-[250px] p-2 mx-auto"
       />
       <span>
-        {i}.{mobile.title}({mobile.color}, {mobile.ram}GB, {mobile.rom}GB)
+        {mobile.title}({mobile.color}, {mobile.ram}GB, {mobile.rom}GB)
       </span>
       <div>
         <del> {priceTag(mobile.actualPrice)}</del>{" "}
@@ -45,7 +45,7 @@ export const renderLaptopCard = (
         className="w-[100%] h-[250px] p-2 mx-auto"
       />
       <span className="ml-1">
-        {i}.{laptop.title} ({laptop.ram}GB, {laptop.rom}GB)
+        {laptop.title} ({laptop.ram}GB, {laptop.rom}GB)
       </span>
       <ul className="ml-2">
         <li>{laptop.processor}</li>
@@ -65,4 +65,19 @@ export const renderLaptopCard = (
       </ul>
     </div>
   );
+};
+
+export const extractSelectedItem = (
+  name: string
+): {
+  tag: Tags;
+  productName: string;
+  id: number;
+} => {
+  const arr = name.split("&");
+  return {
+    tag: arr[0] as Tags,
+    productName: arr[1],
+    id: Number(arr[2]),
+  };
 };

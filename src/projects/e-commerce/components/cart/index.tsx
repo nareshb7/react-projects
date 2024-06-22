@@ -83,6 +83,7 @@ const Cart = () => {
                   <input
                     className="w-[40px] border border-gray-300 text-center"
                     value={"1"}
+                    onChange={()=> {}}
                   />
                   <span className="p-1 rounded-50 border border-gray-500 ml-1 font-bold">
                     {" "}

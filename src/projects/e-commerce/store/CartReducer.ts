@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { homePageData, laptops } from "../data/mockData";
 import { LaptopDataType, MobileDataType } from "../types";
 import { RootState } from "./store";
 
@@ -7,18 +6,20 @@ export type Tags = "laptops"| "mobiles"
 export type CartType = MobileDataType| LaptopDataType
 
 export interface CartInitialState {
-    cart: CartType[],
+    cart: CartType[];
     data : {
-        mobiles: MobileDataType[],
-        laptops: LaptopDataType[]
+        mobiles: MobileDataType[];
+        laptops: LaptopDataType[];
+        isLoading: boolean;
     }
 }
 
 const initialState: CartInitialState = {
     cart: [],
     data: {
-        mobiles: homePageData.mobiles,
-        laptops: homePageData.laptops,
+        mobiles: [],
+        laptops: [],
+        isLoading: false,
     }
 }
 
@@ -28,10 +29,13 @@ const cartSlice = createSlice({
     reducers: {
         addToCart: (state, action: PayloadAction<{type: Tags,id: number}>)=> {
             const {type, id} = action.payload
-            const product = homePageData[type].find(product => product.id === id)
+            const product = state.data[type].find(product => product.id === id)
+            console.log("Prdouct::", product)
             if (product) {
                 const isExist = state.cart.find(data => data.id === product.id && data.tag === product.tag)
+                console.log("EXIST::", isExist)
                 if (!isExist) {
+                    console.log("ADDED::",)
                     state.cart.push(product)
                 }
             }
@@ -45,10 +49,15 @@ const cartSlice = createSlice({
                 return true 
             } )
         },
+        updateStateData: (state, action: PayloadAction<{mobiles: MobileDataType[], laptops: LaptopDataType[]}>)=> {
+            const {mobiles, laptops} = action.payload
+            state.data= {mobiles, laptops, isLoading: false}
+        }
     }
 })
 
-export const {addToCart, removeItem} = cartSlice.actions
+export const {addToCart, removeItem, updateStateData} = cartSlice.actions
 export default cartSlice.reducer
 
 export const cartDataSelector = (state: RootState) => state.data.cart
+export const homePageDataSelector =(state: RootState) => state.data.data
