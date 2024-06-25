@@ -6,6 +6,8 @@ export const Button = ({
   onClick,
   styles,
   className = "",
+  disabled,
+  type,
   ...buttonProps
 }: ButtonProps) => {
   return (
@@ -13,6 +15,8 @@ export const Button = ({
       onClick={onClick}
       style={styles}
       className={`${className} px-3 py-2 border border-blue-500 rounded hover:bg-gray-500 m-1`}
+      disabled={disabled}
+      type={type}
       {...buttonProps}
     >
       {title}
