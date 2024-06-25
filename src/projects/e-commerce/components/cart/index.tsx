@@ -8,10 +8,10 @@ import {
 import { ImageCard } from "projects/e-commerce/utils/ImageCard";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { priceTag } from "utils/util";
 
-const getTotalAmount = (data: CartType[]) => {
+export const getTotalAmount = (data: CartType[]) => {
   const price = data.reduce((a, b) => a + b.actualPrice, 0);
   const discount = data.reduce((a, b) => a + (b.actualPrice - b.finalPrice), 0);
   const finalAmount = price - discount;
@@ -24,6 +24,7 @@ const getTotalAmount = (data: CartType[]) => {
 
 const Cart = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const data = useSelector(cartDataSelector);
   const [amountData, setAmountData] = useState({
     price: 0,
@@ -34,6 +35,10 @@ const Cart = () => {
   const handleRemoveClick = (type: Tags, id: number) => {
     dispatch(removeItem({ type, id }));
   };
+
+  const handlePlaceOrderClick =()=> {
+    navigate("/e-commerce/checkout")
+  }
   useEffect(() => {
     const { price, discount, finalAmount } = getTotalAmount(data);
     setAmountData({ price, discount, finalAmount });
@@ -102,6 +107,7 @@ const Cart = () => {
             <Button
               title="Place Order"
               className=" bg-orange-500 font-bold text-white border-none"
+              onClick={handlePlaceOrderClick}
             />
           </div>
         </section>

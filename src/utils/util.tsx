@@ -4,6 +4,7 @@ export const isEmptyObject = (object: Object) => {
   return Object.keys(object).length == 0;
 };
 export const star = () => <>&#9733;</>;
+export const tickMark = ()=> <>&#x2713;</>
 export const rupeeSymbol = () => <>&#x20B9;</>;
 export const priceTag = (amount: number) => (
   <>
