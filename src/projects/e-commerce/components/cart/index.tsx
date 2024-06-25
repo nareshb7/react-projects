@@ -47,7 +47,7 @@ const Cart = () => {
     <div className="cart-page min-h-[400px] flex bg-slate-100">
       {data.length ? (
         <section className="cart-items w-[65%] p-2">
-          <div className="w-[95%] m-auto bg-white min-h-[300px] overflow-auto">
+          <div className="w-[95%] m-auto bg-white min-h-[300px] overflow-auto max-h-[500px]">
             {data.map((product) => (
               <div className="border-b-2 border-gray-400" key={product.title+ product.id}>
                 <div
