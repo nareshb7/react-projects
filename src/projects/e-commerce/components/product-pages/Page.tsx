@@ -21,6 +21,10 @@ const Page = ({ selectedItem, type }: PageProps) => {
     dispatch(addToCart({ type: selectedItem.tag, id: selectedItem.id }));
     navigate("/e-commerce/cart")
   };
+  const handleBuyNow =()=> {
+    dispatch(addToCart({ type: selectedItem.tag, id: selectedItem.id }));
+    navigate('/e-commerce/checkout')
+  }
 
   return (
     <div className="mobile-page flex gap-1">
@@ -31,7 +35,7 @@ const Page = ({ selectedItem, type }: PageProps) => {
         />
         <div className="mx-auto w-[80%] my-2">
           <Button title="Add to cart" onClick={handleAddToCart} />
-          <Button title="Buy Now" />
+          <Button title="Buy Now" onClick={handleBuyNow} />
         </div>
       </div>
       <div className="product-description pl-2 m-1 h-[500px] overflow-auto w-[65%] border border-gray-400">
