@@ -44,7 +44,7 @@ export const renderLaptopCard = (
         url={laptop.imageUrl}
         className="w-[100%] h-[250px] p-2 mx-auto"
       />
-      <span className="ml-1">
+      <span className="ml-1 font-semibold">
         {laptop.title} ({laptop.ram}GB, {laptop.rom}GB)
       </span>
       <ul className="ml-2">

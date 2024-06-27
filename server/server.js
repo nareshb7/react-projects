@@ -1,11 +1,21 @@
 const express = require("express")
 const {Server} = require("socket.io")
 const http = require("http")
+const cors = require("cors")
+const bodyParser = require("body-parser")
 const PORT = 8081
 const messages =[]
 const roomMessages = {}
 
 const app =express()
+app.use(cors())
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+// Middleware to parse JSON bodies
+app.use(bodyParser.json());
+
+// Middleware to parse URL-encoded bodies
+app.use(bodyParser.urlencoded({ extended: true }));
 const server = http.createServer(app)
 const io = new Server(server,{
     cors: {
@@ -13,7 +23,9 @@ const io = new Server(server,{
         methods: ["GET", "POST"]
     }
 })
+const v1Router = require('./versions/v1')
 
+app.use('/v1',v1Router )
 io.on("connection", (socket) => {
     console.log("SOCKET CONNECTED::", socket.id)
     socket.on("chat", ()=> {

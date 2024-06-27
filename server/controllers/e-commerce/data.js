@@ -1,7 +1,6 @@
-import { LaptopDataType, MobileDataType, SpecificationsType } from "../types";
 
 
-export const specifications:SpecificationsType = {
+ const specifications = {
   "General": {
       "In the Box": "Handset, Charger, USB Data Cable, Sim Ejector Tool, Safety Guide, Quick Guide, TPU Protective Case",
       "Model Number": "RMX3998",
@@ -43,7 +42,7 @@ export const specifications:SpecificationsType = {
   }
 }
 
-export const mobiles: MobileDataType[] = [
+ const mobiles= [
   {
     id: 1,
     title: "Iphone 13",
@@ -190,7 +189,7 @@ export const mobiles: MobileDataType[] = [
   },
 ];
 
-export const laptops: LaptopDataType[] = [
+ const laptops = [
   {
     id: 1,
     title: "Thinkpad L460",
@@ -402,10 +401,12 @@ export const laptops: LaptopDataType[] = [
     specifications,
   },
 ];
+const cartData =[]
 
-export const homePageData = {
+module.exports = {
   mobiles,
   laptops,
+  cartData,
 };
 
 

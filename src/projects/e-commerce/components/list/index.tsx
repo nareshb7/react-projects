@@ -21,8 +21,8 @@ const ProductList = () => {
     const getList = () => {
       setIsLoading(true);
       getProductList(type as Tags)
-        .then((data) => {
-          setList(data as CartType[]);
+        .then((res) => {
+          setList(res.data as CartType[]);
         })
         .catch((err) => {
             console.error(`${type}_items_api_error::`, err.message)
@@ -44,8 +44,8 @@ const ProductList = () => {
         <h1>Filters</h1>
         <div>PRICE</div>
         <div>BRAND</div>
-      </div>
-      {list.length ? (
+      </div> 
+      {list?.length ? (
         <div>
           {list.map((product) => (
             <div

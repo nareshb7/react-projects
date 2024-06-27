@@ -1,4 +1,4 @@
-import { Tags } from "./store/CartReducer";
+import { CartData, Tags } from "./store/CartReducer";
 
 export interface SpecificationType {
   key: string;
@@ -16,6 +16,8 @@ export interface MobileDataType {
   brand: string;
   tag: Tags;
   actualPrice: number;
+  displayType: string;
+  displaySize: string;
   finalPrice: number;
   discount: number;
   color: string;
@@ -56,10 +58,12 @@ export interface EachItemPageProps {
   id: number;
   name: string;
 }
+export type CARTITEMTYPE = "REMOVE"| "INCREASE"|"DECREASE"
 
 export interface HomePageDataModel {
   laptops: LaptopDataType[];
   mobiles: MobileDataType[];
+  cartData: CartData[]
 }
 
 

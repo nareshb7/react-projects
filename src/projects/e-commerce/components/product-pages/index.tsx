@@ -15,8 +15,8 @@ const ItemPage = () => {
     const getSelectedItemData = () => {
       setIsLoading(true);
       getData(tag, id)
-        .then((data) => {
-          setSelectedItem(data as LaptopDataType);
+        .then((res) => {
+          setSelectedItem(res.data as LaptopDataType);
         })
         .catch((err) => {
           console.error("home_page_get_data_error::", err.message);

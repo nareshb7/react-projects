@@ -1,19 +1,28 @@
 import { Button } from "common/Components";
+import { updateCartItem } from "projects/e-commerce/service/api";
 import {
+  CartData,
   CartType,
   Tags,
   cartDataSelector,
+  decreaseTheProductCount,
+  increaseTheProductCount,
   removeItem,
 } from "projects/e-commerce/store/CartReducer";
+import { CARTITEMTYPE } from "projects/e-commerce/types";
 import { ImageCard } from "projects/e-commerce/utils/ImageCard";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { priceTag } from "utils/util";
 
-export const getTotalAmount = (data: CartType[]) => {
-  const price = data.reduce((a, b) => a + b.actualPrice, 0);
-  const discount = data.reduce((a, b) => a + (b.actualPrice - b.finalPrice), 0);
+export const getTotalAmount = (data: CartData[]) => {
+  let price = 0,
+    discount = 0;
+  data.forEach((product) => {
+    price += product.actualPrice * product.count;
+    discount += (product.actualPrice - product.finalPrice) * product.count;
+  });
   const finalAmount = price - discount;
   return {
     price,
@@ -24,7 +33,7 @@ export const getTotalAmount = (data: CartType[]) => {
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const data = useSelector(cartDataSelector);
   const [amountData, setAmountData] = useState({
     price: 0,
@@ -32,15 +41,26 @@ const Cart = () => {
     finalAmount: 0,
   });
 
-  const handleRemoveClick = (type: Tags, id: number) => {
-    dispatch(removeItem({ type, id }));
+  const updateCartData = (tag: Tags, id: number, type: CARTITEMTYPE) => {
+    updateCartItem(tag, id, type)
+      .then((res) => {
+        if (type == "REMOVE") {
+          dispatch(removeItem({ type: tag, id }));
+        } else if (type === "DECREASE") {
+          dispatch(decreaseTheProductCount({ type: tag, id }));
+        } else if (type === "INCREASE") {
+          dispatch(increaseTheProductCount({ type: tag, id }));
+        }
+      })
+      .catch((err) => console.error("update_error::", err.message));
   };
 
-  const handlePlaceOrderClick =()=> {
-    navigate("/e-commerce/checkout")
-  }
+  const handlePlaceOrderClick = () => {
+    navigate("/e-commerce/checkout");
+  };
   useEffect(() => {
     const { price, discount, finalAmount } = getTotalAmount(data);
+    console.log("PRICE::::", { price, discount, finalAmount, data });
     setAmountData({ price, discount, finalAmount });
   }, [data]);
   return (
@@ -49,16 +69,22 @@ const Cart = () => {
         <section className="cart-items w-[65%] p-2">
           <div className="w-[95%] m-auto bg-white min-h-[300px] overflow-auto max-h-[500px]">
             {data.map((product) => (
-              <div className="border-b-2 border-gray-400" key={product.title+ product.id}>
+              <div
+                className="border-b-2 border-gray-400"
+                key={product.title + product.id}
+              >
                 <div
                   className="flex gap-2 m-2 items-start justify-around pt-3"
                   key={product.id}
                 >
-                  <ImageCard url={product.imageUrl} className="w-[20%] h-[150px]" />
+                  <ImageCard
+                    url={product.imageUrl}
+                    className="w-[20%] h-[150px]"
+                  />
                   <div>
                     <h3 className="font-bold text-2xl">{product.title}</h3>
                     <h5 className="text-gray-500 text-sm">
-                      15.6 Inch , {product.color}, 1.69 kg, With ms office
+                      {product.displaySize} , {product.color}
                     </h5>
                     <div className=" text-gray-600">
                       Seller : Resource Solutions
@@ -81,23 +107,32 @@ const Cart = () => {
                   </div>
                 </div>
                 <div className=" w-[95%] m-auto py-4 ">
-                  <span className="p-1 rounded-50 border border-gray-500 mr-1 font-bold">
-                    {" "}
-                    +
-                  </span>
-                  <input
-                    className="w-[40px] border border-gray-300 text-center"
-                    value={"1"}
-                    onChange={()=> {}}
+                  <Button
+                    className="p-0 rounded-50 border border-gray-500 mr-1 font-bold cursor-pointer"
+                    onClick={() =>
+                      updateCartData(product.tag, product.id, "INCREASE")
+                    }
+                    title="+"
                   />
-                  <span className="p-1 rounded-50 border border-gray-500 ml-1 font-bold">
-                    {" "}
-                    -{" "}
-                  </span>
+                  <input
+                    className="w-[40px] border border-gray-300 text-center p-1"
+                    value={product.count}
+                    onChange={() => {}}
+                  />
+                  <Button
+                    className="p-1 rounded-50 border border-gray-500 ml-1 font-bold cursor-pointer"
+                    onClick={() =>
+                      updateCartData(product.tag, product.id, "DECREASE")
+                    }
+                    disabled={product.count == 1}
+                    title="-"
+                  />
                   <Button title="Save for Later" />
                   <Button
                     title="Remove"
-                    onClick={() => handleRemoveClick(product.tag, product.id)}
+                    onClick={() =>
+                      updateCartData(product.tag, product.id, "REMOVE")
+                    }
                   />
                 </div>
               </div>

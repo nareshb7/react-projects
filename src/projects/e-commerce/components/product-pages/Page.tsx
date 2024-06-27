@@ -1,4 +1,5 @@
 import { Button } from "common/Components";
+import { uploadToCart } from "projects/e-commerce/service/api";
 import { Tags, addToCart } from "projects/e-commerce/store/CartReducer";
 import { LaptopDataType, MobileDataType } from "projects/e-commerce/types";
 import { ImageCard } from "projects/e-commerce/utils/ImageCard";
@@ -14,17 +15,21 @@ export interface PageProps {
 
 const Page = ({ selectedItem, type }: PageProps) => {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
-  const handleAddToCart = () => { 
-
-    console.log("SELECT:::", type, selectedItem.id)
-    dispatch(addToCart({ type: selectedItem.tag, id: selectedItem.id }));
-    navigate("/e-commerce/cart")
+  const navigate = useNavigate();
+  const handleAddToCart = () => {
+    console.log("SELECT:::", type, selectedItem.id);
+    uploadToCart(selectedItem.tag, selectedItem.id)
+      .then((res) => {
+        console.log("CATR::TRESS::", res);
+        dispatch(addToCart({ type: selectedItem.tag, id: selectedItem.id }));
+        navigate("/e-commerce/cart");
+      })
+      .catch((err) => console.error("add_to_cart_error:::", err.message));
   };
-  const handleBuyNow =()=> {
+  const handleBuyNow = () => {
     dispatch(addToCart({ type: selectedItem.tag, id: selectedItem.id }));
-    navigate('/e-commerce/checkout')
-  }
+    navigate("/e-commerce/checkout");
+  };
 
   return (
     <div className="mobile-page flex gap-1">
@@ -133,26 +138,35 @@ const Page = ({ selectedItem, type }: PageProps) => {
           {selectedItem.specifications &&
             Object.keys(selectedItem?.specifications).map((specifcation) => {
               return (
-                <div key={specifcation} className="p-2 border-gray-400 border-b">
+                <div
+                  key={specifcation}
+                  className="p-2 border-gray-400 border-b"
+                >
                   <h3 className=" text-gray-400 text-xl my-2">
                     {specifcation}
                   </h3>
                   <table>
                     <tbody>
-                      {Object.keys(selectedItem.specifications[specifcation]).map(
-                        (option) => (
-                          <tr key={option}>
-                            <td>
-                              <span className="text-gray-600 inline-block w-[150px]">
-                                {option}
-                              </span>
-                            </td>
-                            <td>
-                              <span>{selectedItem.specifications[specifcation][option]}</span>
-                            </td>
-                          </tr>
-                        )
-                      )}
+                      {Object.keys(
+                        selectedItem.specifications[specifcation]
+                      ).map((option) => (
+                        <tr key={option}>
+                          <td>
+                            <span className="text-gray-600 inline-block w-[150px]">
+                              {option}
+                            </span>
+                          </td>
+                          <td>
+                            <span>
+                              {
+                                selectedItem.specifications[specifcation][
+                                  option
+                                ]
+                              }
+                            </span>
+                          </td>
+                        </tr>
+                      ))}
                     </tbody>
                   </table>
                 </div>

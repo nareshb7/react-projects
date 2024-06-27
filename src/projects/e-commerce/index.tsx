@@ -21,8 +21,8 @@ const Main = () => {
   useEffect(() => {
     const getData = () => {
       getHomePageData()
-        .then((data) => {
-          dispatch(updateStateData(data as HomePageDataModel));
+        .then((res) => {
+          dispatch(updateStateData(res.data as HomePageDataModel));
         })
         .catch((err) => {
           console.error("home_page_get_data_error::", err.message);
