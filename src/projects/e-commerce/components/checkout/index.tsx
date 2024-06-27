@@ -121,9 +121,9 @@ const CheckOut = () => {
             <Button title="Change" />
           </div>
         </div>
-        <div>
+        <div className="text-end w-[60%] mx-auto my-2">
           <Button
-            title="Confirm"
+            title="Confirm Order"
             className=" bg-orange-500 font-bold text-white border-none"
             onClick={handleConfirmClick}
           />
