@@ -39,7 +39,6 @@ const getHomePageData = async (req, res) => {
 const addToCart = async (req, res) => {
   try {
     const { tag, id } = req.body;
-    console.log("ADD:::", req.body);
     const product = homePageData[tag].find((product) => product.id == id);
     const isExist = homePageData.cartData.find(
       (data) => data.id === product.id && data.tag === product.tag

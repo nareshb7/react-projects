@@ -9,8 +9,6 @@ const roomMessages = {}
 
 const app =express()
 app.use(cors())
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
 

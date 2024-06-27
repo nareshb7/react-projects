@@ -77,8 +77,26 @@ const CheckOut = () => {
                 ORDER SUMMARY {tickMark()}
               </div>
               <div>
-                <span className=" font-bold ">{data?.length} Items</span>
+                <span className="font-bold ">Total : {data?.length} Items</span>
                 <span></span>
+                <div>
+                  {data.map((product, index) => {
+                    return (
+                      <div className="flex" key={product.id}>
+                        <div className="font-bold">{index + 1}.{" "}</div>
+                        <div>
+                          <div className="font-semibold ">
+                            {product.title} ({product.color})
+                          </div>
+                          <div className="text-gray-400">
+                            {priceTag(product.actualPrice)} - {product.count}{" "}
+                            No's
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
@@ -94,7 +112,7 @@ const CheckOut = () => {
             <div>
               <div className="text-gray-400 font-bold">PAYMENT OPTIONS</div>
               <div>
-                <span className=" font-bold ">5 Items</span>
+                <span className=" font-bold ">Debit Card</span>
                 <span></span>
               </div>
             </div>
