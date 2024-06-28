@@ -6,7 +6,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-    value?: string;
+    value?: any;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     styles?: React.CSSProperties
     className?: string;
