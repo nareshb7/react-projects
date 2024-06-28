@@ -22,10 +22,13 @@ const keys = [
 
 const Calculator = () => {
   const [displayValue, setDisplayValue] = useState<any>("");
+  const [previousValue, setPreviousValue] = useState<string>("")
   const handleClick = (value: string) => {
+    setPreviousValue("")
     switch (value) {
       case "=": {
         try {
+          setPreviousValue(displayValue+"=")
           // eval do the all math calculations
           setDisplayValue(eval(displayValue).toString());
         } catch (error) {
@@ -55,6 +58,7 @@ const Calculator = () => {
     <div className="calculator-wrapper">
       <div className="font-bold text-center text-2xl">Calculator</div>
       <div className="calculator">
+        <div className="entered-data">{previousValue}</div>
         <input type="text" className="input" value={displayValue} disabled />
         <div>
           <span className="clear" onClick={() => handleClick("C")}>
