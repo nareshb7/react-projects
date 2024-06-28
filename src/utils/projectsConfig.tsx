@@ -118,7 +118,7 @@ export const projectsList: ProjectsListModal[] = [
   {
     id: 19,
     title: "Shimmer UI",
-    status: "Pending",
+    status: "Completed",
     path: "/shimmer-ui"
   },
   {

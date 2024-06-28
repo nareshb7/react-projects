@@ -28,6 +28,7 @@ const HomePage = lazy(()=> import("projects/e-commerce/components/Homepage"))
 const ItemPage = lazy(()=> import("projects/e-commerce/components/product-pages"))
 const EcommerceCart = lazy(()=> import("projects/e-commerce/components/cart"))
 const EcommerceCheckout = lazy(()=> import("projects/e-commerce/components/checkout"))
+const ShimmerUI = lazy(()=> import("projects/shimmer-ui"))
 
 const router = createBrowserRouter([
   {
@@ -143,6 +144,10 @@ const router = createBrowserRouter([
             element: <EcommerceCheckout />
           }
         ]
+      },
+      {
+        path: "/shimmer-ui",
+        element: <ShimmerUI />
       }
     ],
   },

@@ -1,0 +1,33 @@
+@mixin skeleton($width, $height) {
+  width: $width;
+  height: $height;
+  border-radius: 5px;
+  background: linear-gradient(
+    90deg,
+    rgba(100, 100, 100, 0),
+    rgba(100, 100, 100, 0.3),
+    rgba(100, 100, 100, 0)
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+}
+
+.shimmer-wrapper {
+  background-color: #fff;
+  min-height: 400px;
+  .skeleton-circle {
+      @include skeleton(100px, 100px);
+      border-radius: 50%;
+  }
+  .skeleton-rect {
+    @include skeleton(200px, 100px);
+  }
+}
