@@ -136,7 +136,7 @@ export const projectsList: ProjectsListModal[] = [
   {
     id: 22,
     title: "Image Editor",
-    status: "In Progress",
+    status: "Completed",
     path: "/image-editor"
   },
   {
