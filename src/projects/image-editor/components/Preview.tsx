@@ -32,24 +32,10 @@ const Preview = ({ imageData }: PreviewProps) => {
     const img = new Image();
     img.src = imageData;
     img.onload = () => {
-      const cropWidth = img.width;
-      const cropHeight = img.width;
-      const startX = (img.width - cropWidth) / 2;
-      const startY = (img.height - cropHeight) / 2;
-      canvas.width = cropWidth;
-      canvas.height = cropHeight;
+      canvas.width = img.width;
+      canvas.height = img.height;
       ctx.filter = `brightness(${filters.brightness}) contrast(${filters.contrast}) blur(${filters.blur}px)`;
-      ctx.drawImage(
-        img,
-        0,
-        0,
-        cropWidth,
-        cropHeight,
-        0,
-        0,
-        cropWidth,
-        cropHeight
-      );
+      ctx.drawImage(img, 0, 0);
       // ctx.drawImage(img, startX, startY, 800, cropHeight, 0, 0, cropWidth, cropHeight);
 
       const croppedDataUrl = canvas.toDataURL("image/png");
@@ -126,7 +112,7 @@ const Preview = ({ imageData }: PreviewProps) => {
         <div className="">
           <div>
             <div
-              className="preview-image relative inline-block"
+              className="relative inline-block"
               onMouseDown={startCropping}
               onMouseMove={updateCrop}
               onMouseUp={finishCropping}
