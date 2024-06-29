@@ -2,6 +2,21 @@ import { Button, Input } from "common/Components";
 import React, { useRef, useState } from "react";
 import { FiltersType, PreviewProps } from "../types";
 
+export const getFiltersObj = (filters: FiltersType) => {
+  return `blur(${filters.blur / 100}px) brightness(${
+    filters.brightness / 100
+  }) contrast(${filters.contrast / 100}) saturate(${
+    filters.saturation / 100
+  }) opacity(${filters.opactiy / 100}) grayscale(${
+    filters.grayscale / 100
+  }) hue-rotate(${filters.hueRotate}deg)`;
+};
+// saturation(${
+//   filters.saturation / 100
+// }) opacity(${filters.opactiy / 1000}) grayscale(${
+//   filters.grayscale / 100
+// }) hue-rotate(${filters.hueRotate}deg)
+
 const Preview = ({ imageData }: PreviewProps) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const imageRef = useRef<HTMLImageElement | null>(null);
@@ -9,9 +24,13 @@ const Preview = ({ imageData }: PreviewProps) => {
   const [isCropping, setIsCropping] = useState(false);
   const [crop, setCrop] = useState({ startX: 0, startY: 0, endX: 0, endY: 0 });
   const [filters, setFilters] = useState<FiltersType>({
-    brightness: 1,
-    contrast: 2,
+    brightness: 100,
+    contrast: 100,
     blur: 0,
+    saturation: 100,
+    opactiy: 100,
+    grayscale: 0,
+    hueRotate: 0,
   });
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -34,7 +53,7 @@ const Preview = ({ imageData }: PreviewProps) => {
     img.onload = () => {
       canvas.width = img.width;
       canvas.height = img.height;
-      ctx.filter = `brightness(${filters.brightness}) contrast(${filters.contrast}) blur(${filters.blur}px)`;
+      ctx.filter = getFiltersObj(filters);
       ctx.drawImage(img, 0, 0);
       // ctx.drawImage(img, startX, startY, 800, cropHeight, 0, 0, cropWidth, cropHeight);
 
@@ -87,7 +106,7 @@ const Preview = ({ imageData }: PreviewProps) => {
         }
         croppedCanvas.width = width;
         croppedCanvas.height = height;
-        croppedCtx.filter = `brightness(${filters.brightness}) contrast(${filters.contrast}) blur(${filters.blur}px)`;
+        croppedCtx.filter = getFiltersObj(filters);
         croppedCtx.drawImage(
           img,
           offsetX,
@@ -122,7 +141,7 @@ const Preview = ({ imageData }: PreviewProps) => {
                 src={imageData}
                 style={{
                   maxWidth: "100%",
-                  filter: `blur(${filters.blur}px) brightness(${filters.brightness}) contrast(${filters.contrast})`,
+                  filter: getFiltersObj(filters),
                 }}
               />
               {isCropping && (
@@ -138,7 +157,7 @@ const Preview = ({ imageData }: PreviewProps) => {
                 />
               )}
             </div>
-            <div>
+            <div className="grid grid-cols-4">
               <div>
                 <label className="font-semibold inline-block min-w-[100px]">
                   Brightness
@@ -146,9 +165,10 @@ const Preview = ({ imageData }: PreviewProps) => {
                 <Input
                   type="number"
                   name="brightness"
-                  max={100}
                   value={filters.brightness}
                   onChange={handleChange}
+                  min={0}
+                  max={200}
                 />
               </div>
               <div>
@@ -160,6 +180,8 @@ const Preview = ({ imageData }: PreviewProps) => {
                   name="contrast"
                   value={filters.contrast}
                   onChange={handleChange}
+                  min={0}
+                  max={200}
                 />
               </div>
               <div>
@@ -171,10 +193,64 @@ const Preview = ({ imageData }: PreviewProps) => {
                   name="blur"
                   value={filters.blur}
                   onChange={handleChange}
+                  min={0}
+                  max={200}
                 />
               </div>
-              <Button title="Crop" onClick={handleCrop} />
+              <div>
+                <label className="font-semibold inline-block min-w-[100px]">
+                  Saturation
+                </label>
+                <Input
+                  type="number"
+                  name="saturation"
+                  value={filters.saturation}
+                  onChange={handleChange}
+                  min={0}
+                  max={200}
+                />
+              </div>
+              <div>
+                <label className="font-semibold inline-block min-w-[100px]">
+                  Opacity
+                </label>
+                <Input
+                  type="number"
+                  name="opactiy"
+                  value={filters.opactiy}
+                  onChange={handleChange}
+                  min={0}
+                  max={200}
+                />
+              </div>
+              <div>
+                <label className="font-semibold inline-block min-w-[100px]">
+                  Gray Scale
+                </label>
+                <Input
+                  type="number"
+                  name="grayscale"
+                  value={filters.grayscale}
+                  onChange={handleChange}
+                  min={0}
+                  max={200}
+                />
+              </div>
+              <div>
+                <label className="font-semibold inline-block min-w-[100px]">
+                  Hue
+                </label>
+                <Input
+                  type="number"
+                  name="hueRotate"
+                  value={filters.hueRotate}
+                  onChange={handleChange}
+                  min={0}
+                  max={200}
+                />
+              </div>
             </div>
+            <Button title="Crop" onClick={handleCrop} />
           </div>
           <div>
             <canvas ref={canvasRef} style={{ display: "none" }} />
