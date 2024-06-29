@@ -14,7 +14,7 @@ export const Button = ({
     <button
       onClick={onClick}
       style={styles}
-      className={`${className} px-3 py-2 border border-blue-500 rounded hover:bg-gray-500 m-1`}
+      className={` px-3 py-2 border border-blue-500 rounded hover:bg-gray-500 m-1 ${className}`}
       disabled={disabled}
       type={type}
       {...buttonProps}
