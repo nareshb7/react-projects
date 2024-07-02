@@ -1,15 +1,18 @@
 // App.js
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.scss";
 import Floor from "./components/Floor";
 import Elevator from "./components/Elevator";
 
 const LiftElevator = () => {
   const [currentFloor, setCurrentFloor] = useState(1);
+  const [stack, setStack] = useState<number[]>([])
   const floors = [5, 4, 3, 2, 1];
 
   const callElevator = (floor: number) => {
-    setCurrentFloor(floor);
+    stack.push(floor)
+    setStack(stack)
+    setCurrentFloor(floor)
   };
 
   return (
