@@ -10,4 +10,5 @@ export interface ControlPanelProps {
 export interface FloorProps {
   floorNumber: number;
   callElevator: (floor: number) => void;
+  isCurrentFloor: boolean;
 }

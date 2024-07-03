@@ -18,7 +18,7 @@ const LiftElevator = () => {
   return (
     <div className="relative w-[200px] h-[500px] border border-black">
       {floors.map((floor) => (
-        <Floor key={floor} floorNumber={floor} callElevator={callElevator} />
+        <Floor key={floor} floorNumber={floor} callElevator={callElevator} isCurrentFloor={currentFloor === floor} />
       ))}
       <Elevator
         currentFloor={currentFloor}
