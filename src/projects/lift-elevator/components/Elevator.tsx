@@ -7,7 +7,7 @@ const Elevator = ({ currentFloor, floors, callElevator }: ElevatorProps) => {
   const elevatorStyle: React.CSSProperties = {
     position: "absolute",
     bottom: `${(currentFloor - 1) * 100}px`,
-    transition: "bottom 3s",
+    transition: "bottom 2s",
     width: "150px",
     height: "100px",
     backgroundColor: "gray",
