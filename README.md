@@ -64,6 +64,3 @@ Make your changes and commit them: git commit -am 'Add new feature'.
 Push to the branch: git push origin feature/new-feature.
 Submit a pull request.
 
-
-### License
-This project is licensed under the MIT License - see the LICENSE file for details.
