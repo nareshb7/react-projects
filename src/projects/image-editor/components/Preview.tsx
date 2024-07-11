@@ -11,11 +11,6 @@ export const getFiltersObj = (filters: FiltersType) => {
     filters.grayscale / 100
   }) hue-rotate(${filters.hueRotate}deg)`;
 };
-// saturation(${
-//   filters.saturation / 100
-// }) opacity(${filters.opactiy / 1000}) grayscale(${
-//   filters.grayscale / 100
-// }) hue-rotate(${filters.hueRotate}deg)
 
 const Preview = ({ imageData }: PreviewProps) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -131,7 +126,7 @@ const Preview = ({ imageData }: PreviewProps) => {
         <div className="">
           <div>
             <div
-              className="relative inline-block"
+              className="relative inline-block w-[500px]"
               onMouseDown={startCropping}
               onMouseMove={updateCrop}
               onMouseUp={finishCropping}
