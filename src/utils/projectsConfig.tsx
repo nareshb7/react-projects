@@ -111,38 +111,20 @@ export const projectsList: ProjectsListModal[] = [
   },
   {
     id: 18,
-    title: "Config Driven UI",
-    status: "Pending",
-    path: "/config-driven"
-  },
-  {
-    id: 19,
     title: "Shimmer UI",
     status: "Completed",
     path: "/shimmer-ui"
   },
   {
-    id: 20,
-    title: "Rich Text Editor",
-    status: "Pending",
-    path: "/rich-text-editor"
-  },
-  {
-    id: 21,
-    title: "Dark and Light mode",
-    status: "Pending",
-    path: "/dark-mode"
-  },
-  {
-    id: 22,
+    id: 19,
     title: "Image Editor",
     status: "Completed",
     path: "/image-editor"
   },
   {
-    id: 23,
+    id: 20,
     title: "Lift Elevator",
-    status: "In Progress",
+    status: "Completed",
     path: '/lift-elevator'
   }
 ];
