@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkreact_beginner_projects_1=self.webpackChunkreact_beginner_projects_1||[]).push([[323],{8323:(e,t,n)=>{n.r(t),n.d(t,{default:()=>c});var r=n(6540);const c=function(){return r.createElement("h2",null,"Welcome to the Login form")}}}]);
