@@ -32,11 +32,9 @@ This repository contains 20 projects built with React, TypeScript, Tailwind CSS,
 15. **Quiz Application**: An interactive quiz for testing knowledge.
 16. **Calculator**: A basic calculator application.
 17. **E-Commerce**: An e-commerce application for buying and selling products.
-18. **Config-Driven-UI**:
-19. **Protected Route**:
-20. **Rich Text Editor**:
-21. **Dark and Light Mode**:
-22. **Image Editor**:
+18. **Shimmer UI**: Loading screen of empty webpage with profile and cards.
+19. **Image Editor**: Image editor with cropping.
+20. **Lift Elevator**: Its basic lift elevator with 5 floors
 
 
 ## Usage
