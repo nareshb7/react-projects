@@ -7,7 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: 'bundle.js', // Output file nam
-    publicPath: "/"
+    publicPath: "/react-projects/"
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx"],

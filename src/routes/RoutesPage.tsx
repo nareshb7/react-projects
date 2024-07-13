@@ -36,6 +36,8 @@ const ShimmerUI = lazy(() => import("projects/shimmer-ui"));
 const ImageEditor = lazy(() => import("projects/image-editor"));
 const LiftElevator = lazy(() => import("projects/lift-elevator"));
 
+const basename = process.env.PUBLIC_URL;
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -167,6 +169,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-]);
+], {basename});
 
 export default router;

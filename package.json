@@ -3,15 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "homepage": "/react-projects/",
-  "main": "index.js",
+  "main": "src/index.tsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": " webpack-dev-server --mode development --open --hot",
     "server": "nodemon server/server.js",
-    "start": "concurrently \"npm run start\" \"npm run server\"",
+    "start": "concurrently \"npm run client\" \"npm run server\"",
     "build": "webpack --mode production",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "postbuild": "cpy dist/index.html dist/404.html"
   },
   "author": "",
   "license": "ISC",
@@ -48,6 +49,7 @@
     "@types/react": "^18.2.79",
     "@types/react-dom": "^18.2.25",
     "concurrently": "^8.2.2",
+    "cpy-cli": "^5.0.0",
     "dotenv-webpack": "^8.1.0",
     "node-sass": "^9.0.0",
     "nodemon": "^3.1.0",
