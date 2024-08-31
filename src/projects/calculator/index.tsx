@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./styles.scss";
+import { calculate } from "./helper";
 
 const keys = [
   { key: "7", type: "number" },
@@ -28,10 +29,11 @@ const Calculator = () => {
     switch (value) {
       case "=": {
         try {
-          setPreviousValue(displayValue+"=")
           // eval do the all math calculations
-          setDisplayValue(eval(displayValue).toString());
+          setDisplayValue(calculate(displayValue).toString());
+          setPreviousValue(displayValue+"=")
         } catch (error) {
+          console.log("error:::",error)
           setDisplayValue("Syntax Error");
         }
         break;
