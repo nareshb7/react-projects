@@ -1,5 +1,5 @@
 import React from "react";
-import { TodoTableProps } from "./modals";
+import { TodoTableProps } from "./types";
 import { Button } from "common/Components";
 
 const TodoTable = ({ todos, handleDelete, handleEdit }: TodoTableProps) => {
@@ -17,12 +17,12 @@ const TodoTable = ({ todos, handleDelete, handleEdit }: TodoTableProps) => {
           </thead>
           <tbody>
             {todos.map((todo, idx) => (
-              <tr key={idx} className="bg-gray-100 hover:bg-gray-200">
+              <tr key={todo.id} className="bg-gray-100 hover:bg-gray-200">
                 <td className="table-cell border p-2">{idx + 1}</td>
                 <td className="table-cell border p-2">{todo.content}</td>
                 <td className="table-cell border p-2">{todo.status}</td>
                 <td className="table-cell border p-2 ">
-                  <Button title="Update" onClick={() => handleEdit(idx)} />
+                  <Button title="Update" onClick={() => handleEdit(todo)} />
                   <Button title="Delete" onClick={() => handleDelete(todo)} />
                 </td>
               </tr>

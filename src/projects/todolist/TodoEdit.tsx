@@ -1,13 +1,16 @@
 import { Button, Input } from "common/Components";
 import React, { useEffect, useState } from "react";
-import { TodoEditProps, TodoModel, TodoStatus } from "./modals";
+import { TodoEditProps, TodoModel, TodoStatus } from "./types";
+import { generateRandomId } from "./hook";
 
 const TODO_OBJ: TodoModel = {
   content: "",
-  status: "Pending",
+  status: "pending",
+  id: generateRandomId()
 };
 
 const TodoEdit = ({ handleAdd, isEdit, editContent }: TodoEditProps) => {
+  console.log({isEdit, editContent})
   const [newTodo, setNewTodo] = useState<TodoModel>(TODO_OBJ);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -19,12 +22,14 @@ const TodoEdit = ({ handleAdd, isEdit, editContent }: TodoEditProps) => {
       const updateTodo: TodoModel = {
         content: newTodo.content,
         status: newTodo.status,
+        id: newTodo.id
       };
       handleAdd(updateTodo, true);
     } else {
       const latestTodo: TodoModel = {
         content: newTodo.content,
-        status: "Pending",
+        status: "pending",
+        id: generateRandomId()
       };
       handleAdd(latestTodo);
     }
@@ -54,9 +59,9 @@ const TodoEdit = ({ handleAdd, isEdit, editContent }: TodoEditProps) => {
           name="status"
           onChange={handleSelect}
         >
-          <option value="Pending">Pending</option>
-          <option value="In Progress">In Progress</option>
-          <option value="Completed">Completed</option>
+          <option value="pending">Pending</option>
+          <option value="inProgress">In Progress</option>
+          <option value="completed">Completed</option>
         </select>
       )}
       <Button
