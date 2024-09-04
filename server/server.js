@@ -24,14 +24,6 @@ const io = new Server(server, {
 });
 const v1Router = require("./versions/v1");
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../public")));
-
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "../public", "index.html"));
-  });
-}
-
 app.use("/v1", v1Router);
 io.on("connection", (socket) => {
   console.log("SOCKET CONNECTED::", socket.id);
