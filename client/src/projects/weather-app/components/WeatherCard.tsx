@@ -13,7 +13,7 @@ const WeatherCard = ({ weatherData }: WeatherCardProps) => {
           <p>Description: {description}</p>
           <p className="weather-icon flex justify-center items-center">
             <img
-              src={`http://openweathermap.org/img/wn/${icon}.png`}
+              src={`https://openweathermap.org/img/wn/${icon}.png`}
               alt={description}
             />
           </p>
