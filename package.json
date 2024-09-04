@@ -6,13 +6,12 @@
   "main": "src/index.tsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client": " webpack-dev-server --mode development --open --hot",
+    "client": "webpack-dev-server --mode development --open --hot --config webpack.config.js",
     "server": "nodemon server/server.js",
     "start": "concurrently \"npm run client\" \"npm run server\"",
-    "build": "webpack --mode production",
+    "build": "npm i && webpack --mode production --config webpack.config.js",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
-    "postbuild": "cpy dist/index.html dist/404.html"
+    "deploy": "gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",

@@ -62,7 +62,12 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
+      template: "./public/index.html",
+    }),
+    new HtmlWebpackPlugin({
+      template: './public/404.html',
+      filename: '404.html',
+      inject: false,  // Prevents Webpack from injecting script tags into 404.html
     }),
     new DotenvWebpackPlugin()
   ],
