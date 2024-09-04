@@ -6,8 +6,9 @@ import Login from "./components/Login";
 import { ChatUserData } from "./types";
 import { initialUserObj } from "./utils/Constants";
 import { Button } from "common/Components";
+import { BE_URL } from "utils/Constants";
 
-export const socket = io("http://192.168.10.30:8081");
+export const socket = io(BE_URL);
 
 const ChatMain = () => {
   const [userData, setUserData] = useState<ChatUserData>(initialUserObj);

@@ -1,8 +1,8 @@
+import { BE_URL } from "utils/Constants";
 import { homePageData } from "../data/mockData";
 import { CartType, Tags } from "../store/CartReducer";
 import { CARTITEMTYPE } from "../types";
 
-export const BE_URL = "http://192.168.10.30:8081";
 
 export const getData = async (tag: Tags, id: number) => {
   return fetch(

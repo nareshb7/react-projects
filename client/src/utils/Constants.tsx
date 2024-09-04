@@ -8,3 +8,6 @@ export const mobilePattern = /^\d{10}$/;
 export const ageLimit = {min: 18, max: 99}
 
 export const WEATHER_API_KEY = process.env.WEATHER_API_KEY
+const SERVER_BE_URL = "https://react-projects-pdiv.onrender.com"
+const LOCAL_BE_URL = "http://192.168.10.30:8081";
+export const BE_URL = SERVER_BE_URL
