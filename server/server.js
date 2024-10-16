@@ -10,7 +10,7 @@ const roomMessages = {};
 
 const app = express();
 app.use(cors());
-// Middleware to parse JSON bodies
+// Middleware to parse JSON bodies check
 app.use(bodyParser.json());
 
 // Middleware to parse URL-encoded bodies
